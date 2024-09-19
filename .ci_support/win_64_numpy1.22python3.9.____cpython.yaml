@@ -6,6 +6,8 @@ channel_targets:
 - conda-forge main
 cxx_compiler:
 - vs2019
+libboost_headers:
+- '1.84'
 mkl:
 - '2023'
 numpy:
@@ -23,7 +25,7 @@ tbb:
 tbb_devel:
 - '2021'
 vtk:
-- 9.3.0
+- 9.3.1
 zip_keys:
 - - python
   - numpy
