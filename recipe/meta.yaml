@@ -46,6 +46,7 @@ outputs:
         - pip
         - tbb
         - tbb-devel
+        - pycgns-core
       run:
         - python
         - {{ pin_compatible('numpy') }}
@@ -54,6 +55,7 @@ outputs:
         - eigency
         - networkx >=3.0
         - tbb
+        - pycgns-core
         - dill
         - pywin32  # [win]
     test:
@@ -120,7 +122,7 @@ outputs:
         - eigen
         - scipy >=1.9
         - h5py
-        - pycgns
+        - pycgns-core
         - networkx >=3.0
         - libboost-headers
         - pytest
