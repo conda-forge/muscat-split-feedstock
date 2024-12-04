@@ -10,7 +10,7 @@ source:
   sha256: e7fdb1b5414843a0b37a04326a787d233153d22b5a5236d4f8a0eaa13441db11
 
 build:
-  number: 0
+  number: 1
 
 outputs:
   - name: muscat-core
@@ -49,7 +49,6 @@ outputs:
         - setuptools
       run:
         - python
-        - {{ pin_compatible('numpy') }}
         - scipy >=1.12
         - sympy
         - eigency
@@ -84,7 +83,6 @@ outputs:
         - networkx >=3.0
       run:
         - python
-        - {{ pin_compatible('numpy') }}
         - vtk
         - psutil
         - h5py
