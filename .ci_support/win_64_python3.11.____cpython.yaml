@@ -11,7 +11,7 @@ libboost_headers:
 mkl_devel:
 - '2024'
 numpy:
-- '1.23'
+- '2.0'
 pin_run_as_build:
   python:
     min_pin: x.x
