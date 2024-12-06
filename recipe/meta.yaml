@@ -1,4 +1,4 @@
-{% set version = "2.3.0" %}
+{% set version = "2.3.1" %}
 
 package:
   name: muscat-split
@@ -6,11 +6,13 @@ package:
 
 
 source:
-  url: https://gitlab.com/drti/muscat/-/archive/{{ version }}/muscat-{{ version }}.tar.bz2
-  sha256: e7fdb1b5414843a0b37a04326a787d233153d22b5a5236d4f8a0eaa13441db11
+  #url: https://gitlab.com/drti/muscat/-/archive/{{ version }}/muscat-{{ version }}.tar.bz2
+  #sha256: e7fdb1b5414843a0b37a04326a787d233153d22b5a5236d4f8a0eaa13441db11
+  url: https://gitlab.com/drti/muscat/-/archive/ToNumpy2.0/muscat-ToNumpy2.0.tar.gz
+  sha256: 470a288c0cea26022c2e26020561f33731c0603c024692fd1c68db38b4557330
 
 build:
-  number: 1
+  number: 0
 
 outputs:
   - name: muscat-core
@@ -91,6 +93,7 @@ outputs:
         - networkx >=3.0
         - mmgsuite  # [not win]
         - cvxpy
+        - pycgns-core
     test:
       imports:
         - psutil
@@ -127,7 +130,7 @@ outputs:
         - eigen
         - scipy >=1.9
         - h5py
-        - pycgns
+        - pycgns-core
         - networkx >=3.0
         - libboost-headers
         - pytest
