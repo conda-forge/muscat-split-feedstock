@@ -10,7 +10,7 @@ source:
   sha256: e7fdb1b5414843a0b37a04326a787d233153d22b5a5236d4f8a0eaa13441db11
 
 build:
-  number: 1
+  number: 2
 
 outputs:
   - name: muscat-core
