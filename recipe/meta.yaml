@@ -36,7 +36,7 @@ outputs:
         - numpy
         - cython
         - sympy
-        - eigency =3.4.0.2
+        - eigency >=3.4.0.4
         - mkl-devel
         - setuptools-scm
         - eigen
@@ -123,7 +123,7 @@ outputs:
         - numpy
         - sympy
         - cython
-        - eigency =3.4.0.2
+        - eigency >=3.4.0.4
         - mkl-devel
         - setuptools-scm
         - eigen
