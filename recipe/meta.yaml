@@ -10,7 +10,7 @@ source:
   sha256: 201258c5568bcac832518633b46dc77ec6ecee65bf2376a5bce2d6f4328293b6
 
 build:
-  number: 1
+  number: 2
 
 
 outputs:
@@ -39,7 +39,7 @@ outputs:
         - numpy
         - cython
         - sympy
-        - eigency =3.4.0.2
+        - eigency >=3.4.0.4
         - mkl-devel
         - setuptools-scm
         - eigen
@@ -146,7 +146,7 @@ outputs:
         - numpy
         - sympy
         - cython
-        - eigency =3.4.0.2
+        - eigency >=3.4.0.4
         - mkl-devel
         - setuptools-scm
         - eigen
