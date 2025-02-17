@@ -4,7 +4,8 @@ BUILD_CONFIG=Release
 
 mkdir cmakeBuild
 
-cmake  ${CMAKE_ARG}                            \
+cmake  ${CMAKE_ARG} ${Muscat_CUDA_ARGS}        \
+-D CMAKE_BUILD_TYPE=${BUILD_CONFIG}            \
 -D CMAKE_BUILD_TYPE=${BUILD_CONFIG}            \
 -D CMAKE_EXPORT_COMPILE_COMMANDS:BOOL="TRUE"   \
 -D Muscat_ENABLE_Kokkos:BOOL=ON                \

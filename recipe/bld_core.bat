@@ -5,6 +5,7 @@ cd build
 
 
 cmake .. -G "Ninja"                            ^
+ %CMAKE_ARGS%  %Muscat_CUDA_ARGS%              ^
 -D CMAKE_BUILD_TYPE=Release                    ^
 -D CMAKE_EXPORT_COMPILE_COMMANDS:BOOL="TRUE"   ^
 -D Muscat_ENABLE_Kokkos:BOOL=ON                ^
