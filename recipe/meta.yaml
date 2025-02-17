@@ -14,9 +14,6 @@ build:
   number: 2
   string: "cuda{{ cuda_major }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}"  # [cuda_compiler_version != "None"]
   string: "cpu_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}"  # [cuda_compiler_version == "None"]
-  script_env:
-    - Muscat_CUDA_ARGS=-DMuscat_ENABLE_CUDA=ON   # [cuda_compiler_version != "None"]
-    - Muscat_CUDA_ARGS=-DMuscat_ENABLE_CUDA=OFF  # [cuda_compiler_version == "None"]
 
 outputs:
   - name: muscat-core
@@ -24,6 +21,9 @@ outputs:
     script: build_core.sh  # [not win]
     script: bld_core.bat  # [win]
     build:
+      script_env:
+        - Muscat_CUDA_ARGS=-DMuscat_ENABLE_CUDA=ON  # [cuda_compiler_version != "None"]
+        - Muscat_CUDA_ARGS=-DMuscat_ENABLE_CUDA=OFF  # [cuda_compiler_version == "None"]
       entry_points:
         - "MeshFileConvert = Muscat.IO.MeshFileConverter:Main"
       skip_compile_pyc:
