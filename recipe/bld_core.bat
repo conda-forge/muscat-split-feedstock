@@ -23,7 +23,7 @@ cmake .. -G "Ninja"                            ^
 cmake                ^
   --build .          ^
   --config Release   ^
-  -j 5
+  -j 2
 
 cmake                 ^
 --install .           ^

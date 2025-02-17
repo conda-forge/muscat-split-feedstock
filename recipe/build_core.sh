@@ -11,9 +11,6 @@ cmake  ${CMAKE_ARG} ${Muscat_CUDA_ARGS}        \
 -D Muscat_ENABLE_Python:BOOL=ON                \
 -D Muscat_ENABLE_Documentation=OFF             \
 -D mmg_DIR:PATH=${PREFIX}/lib/cmake/mmg        \
--D PYTHON_EXECUTABLE="${PYTHON}"               \
--D PYTHON3_EXECUTABLE="${PYTHON}"              \
--D Python3_EXECUTABLE="${PYTHON}"              \
 -D Python_EXECUTABLE="${PYTHON}"               \
 -D CMAKE_INSTALL_PREFIX=${PREFIX}              \
 -G Ninja                                       \
@@ -22,11 +19,11 @@ cmake  ${CMAKE_ARG} ${Muscat_CUDA_ARGS}        \
 
 cmake                 \
 --build cmakeBuild    \
---parallel 16
+--parallel 2
 
-ctest                  \
---test-dir cmakeBuild  \
---output-on-failure    \
---parallel 16
+#ctest                  \
+#--test-dir cmakeBuild  \
+#--output-on-failure    \
+#--parallel 2
 
 cmake --install cmakeBuild

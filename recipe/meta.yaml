@@ -1,10 +1,9 @@
 {% set version = "2.4.0" %}
+{% set cuda_major = environ.get("cuda_compiler_version", "0.0").split(".")[0]|int %}
 
 package:
   name: muscat-split
   version: {{ version }}
-
-{% set cuda_major = environ.get("cuda_compiler_version", "0.0").split(".")[0]|int %}
 
 source:
   url: https://gitlab.com/drti/muscat/-/archive/{{ version }}/muscat-{{ version }}.tar.bz2
@@ -27,7 +26,7 @@ outputs:
       entry_points:
         - "MeshFileConvert = Muscat.IO.MeshFileConverter:Main"
       skip_compile_pyc:
-        "MuscatParaViewPlugin.py"
+        - "MuscatParaViewPlugin.py"
 
     requirements:
       build:
@@ -70,10 +69,20 @@ outputs:
         - matplotlib
         - pycgns-core  # [py > 39]
         - pycgns  # [py == 39]
+  # Will get nvcc linker warnings if the cudatoolkit version doesn't match
+        - cuda-version {{ environ.get("cuda_compiler_version") }}.*  # [cuda_compiler_version != "None"]
+{% if cuda_major == 11 %}
+        - cudatoolkit {{ environ.get("cuda_compiler_version") }}.*
+{% endif %}
+{% if cuda_major == 12 %}
+        - cuda-cudart-dev
+        - cuda-driver-dev   # [not win]
+{% endif %}
       run:
         - python
         - __cuda  # [cuda_compiler_version != "None"]
         - {{ pin_compatible('numpy') }}
+        - {{ pin_compatible('cuda') }}
         - scipy >=1.12,<1.15
         - sympy
         - eigency =3.4.0.2
