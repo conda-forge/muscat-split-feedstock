@@ -9,7 +9,7 @@ cxx_compiler:
 github_actions_labels:
 - cirun-openstack-gpu-large
 libboost_headers:
-- '1.86'
+- '1.88'
 mkl_devel:
 - '2024'
 mumps_seq:
