@@ -105,7 +105,7 @@ outputs:
         - python -u -m Muscat.Helpers.Check -k AnisotropicMetricComputation -k Mumps  # [win]
         - readelf -S $PREFIX/lib/libMuscatCore.so | grep debug  # [linux and build_type == "debug"]
         - dsymutil -s $PREFIX/lib/libMuscatCore.dylib | grep N_FUN  # [osx and build_type == "debug"]
-        - if not exist %PREFIX%\\Library\\bin\\MuscatCore.pdb exit 1 # [win and build_type == "debug"]
+        - if not exist %PREFIX%\\Library\\bin\\MuscatCore.pdb exit 1  # [win and build_type == "debug"]
 
   - name: "muscat-extensions{% if build_type == "debug" %}-debug{% endif %}"
     version: {{ version }}
