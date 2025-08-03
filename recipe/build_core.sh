@@ -1,6 +1,10 @@
 set -ex
 
-BUILD_CONFIG=Release
+if [[ "${build_type}" == "debug" ]]; then
+  BUILD_CONFIG=Debug
+else
+  BUILD_CONFIG=Release
+fi
 BUILD_DIR=cmakeBuild${PY_VER}
 
 mkdir -p ${BUILD_DIR}

@@ -14,7 +14,7 @@ build:
 
 
 outputs:
-  - name: muscat-core
+  - name: muscat-core{% if build_type == "debug" %}-debug{% endif %}
     version: {{ version }}
     script: build_core.sh      # [linux]
     script: build_core_OsX.sh  # [osx]
@@ -103,8 +103,11 @@ outputs:
         - python -u -m Muscat.Helpers.Check -k Which -k Mumps  # [osx]
         - python -u -m Muscat.Helpers.Check  # [linux]
         - python -u -m Muscat.Helpers.Check -k AnisotropicMetricComputation -k Mumps  # [win]
+        - readelf -S $PREFIX/lib/libMuscatCore.so | grep debug  # [linux and build_type == "debug"]
+        - dsymutil -s $PREFIX/lib/libMuscatCore.dylib | grep N_FUN  # [osx and build_type == "debug"]
+        - if not exist %PREFIX%\\Library\\bin\\MuscatCore.pdb exit 1 # [win and build_type == "debug"]
 
-  - name: "muscat-extensions"
+  - name: "muscat-extensions{% if build_type == "debug" %}-debug{% endif %}"
     version: {{ version }}
     requirements:
       host:
@@ -138,12 +141,12 @@ outputs:
         - meshio
         - networkx
 
-  - name: "muscat"
+  - name: "muscat{% if build_type == "debug" %}-debug{% endif %}"
     version: {{ version }}
     requirements:
       run:
-        - {{ pin_subpackage('muscat-core', max_pin='x.x.x') }}
-        - {{ pin_subpackage('muscat-extensions', max_pin='x.x.x') }}
+        - {{ pin_subpackage('muscat-core' ~ ('-debug' if build_type == 'debug' else ''), max_pin='x.x.x') }}
+        - {{ pin_subpackage('muscat-extensions' ~ ('-debug' if build_type == 'debug' else ''), max_pin='x.x.x') }}
     test:
       imports:
         - Muscat
@@ -152,7 +155,7 @@ outputs:
         - python -u -m Muscat.Helpers.Check  # [linux]
         - python -u -m Muscat.Helpers.Check -k AnisotropicMetricComputation   # [win]
 
-  - name: "muscat-devenv"
+  - name: "muscat-devenv{% if build_type == "debug" %}-debug{% endif %}"
     version: {{ version }}
     requirements:
       run:

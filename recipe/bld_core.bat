@@ -5,7 +5,7 @@ cd cmakeBuild%PY_VER%
 
 
 cmake .. -G "Ninja"                            ^
--D CMAKE_BUILD_TYPE=Release                    ^
+-D CMAKE_BUILD_TYPE=%build_type%                    ^
 -D CMAKE_EXPORT_COMPILE_COMMANDS:BOOL="TRUE"   ^
 -D Muscat_ENABLE_Mumps:BOOL=ON                 ^
 -D Muscat_ENABLE_Python:BOOL=ON                ^
@@ -21,9 +21,9 @@ cmake .. -G "Ninja"                            ^
 
 cmake                ^
   --build .          ^
-  --config Release   ^
+  --config %build_type%   ^
   -j 1
 
 cmake                 ^
 --install .           ^
---config Release
+--config %build_type%

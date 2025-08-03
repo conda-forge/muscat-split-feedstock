@@ -1,2 +1,6 @@
+build_type:
+  - release
+  - debug
+
 github_actions_labels:
 - cirun-openstack-gpu-large
