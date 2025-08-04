@@ -3,27 +3,33 @@ setlocal EnableDelayedExpansion
 mkdir cmakeBuild%PY_VER%
 cd cmakeBuild%PY_VER%
 
+if "%build_type%" == "debug" (
+    set BUILD_CONFIG=Debug
+) else (
+    set BUILD_CONFIG=Release
+)
 
 cmake .. -G "Ninja"                            ^
--D CMAKE_BUILD_TYPE=%build_type%                    ^
--D CMAKE_EXPORT_COMPILE_COMMANDS:BOOL="TRUE"   ^
--D Muscat_ENABLE_Mumps:BOOL=ON                 ^
--D Muscat_ENABLE_Python:BOOL=ON                ^
--D Muscat_ENABLE_Documentation=OFF             ^
--D mmg_DIR:PATH=%PREFIX%/lib/cmake/mmg         ^
--D Python_EXECUTABLE=%PYTHON%                  ^
--D CMAKE_PREFIX_PATH="%LIBRARY_PREFIX%"        ^
--D CMAKE_INSTALL_LIBDIR="Library/lib"          ^
--D CMAKE_INSTALL_BINDIR="Library/bin"          ^
--D CMAKE_INSTALL_INCLUDEDIR="Library/include"  ^
--D CMAKE_INSTALL_DATAROOTDIR="Library/share"   ^
--D CMAKE_INSTALL_PREFIX="%PREFIX%"
+ -D CMAKE_BUILD_TYPE=%BUILD_CONFIG%             ^
+ -D CMAKE_CXX_FLAGS_DEBUG="/bigobj"             ^
+ -D CMAKE_EXPORT_COMPILE_COMMANDS:BOOL="TRUE"   ^
+ -D Muscat_ENABLE_Mumps:BOOL=ON                 ^
+ -D Muscat_ENABLE_Python:BOOL=ON                ^
+ -D Muscat_ENABLE_Documentation=OFF             ^
+ -D mmg_DIR:PATH=%PREFIX%/lib/cmake/mmg         ^
+ -D Python_EXECUTABLE=%PYTHON%                  ^
+ -D CMAKE_PREFIX_PATH="%LIBRARY_PREFIX%"        ^
+ -D CMAKE_INSTALL_LIBDIR="Library/lib"          ^
+ -D CMAKE_INSTALL_BINDIR="Library/bin"          ^
+ -D CMAKE_INSTALL_INCLUDEDIR="Library/include"  ^
+ -D CMAKE_INSTALL_DATAROOTDIR="Library/share"   ^
+ -D CMAKE_INSTALL_PREFIX="%PREFIX%"
 
 cmake                ^
   --build .          ^
-  --config %build_type%   ^
+  --config %BUILD_CONFIG%   ^
   -j 1
 
 cmake                 ^
 --install .           ^
---config %build_type%
+--config %BUILD_CONFIG%
