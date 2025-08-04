@@ -27,24 +27,45 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64</td>
+              <td>linux_64_build_typedebug</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=20537&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/muscat-split-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/muscat-split-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_build_typedebug" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64</td>
+              <td>linux_64_build_typerelease</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=20537&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/muscat-split-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/muscat-split-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_build_typerelease" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>win_64</td>
+              <td>osx_64_build_typedebug</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=20537&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/muscat-split-feedstock?branchName=main&jobName=win&configuration=win%20win_64_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/muscat-split-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_build_typedebug" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_build_typerelease</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=20537&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/muscat-split-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_build_typerelease" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64_build_typedebug</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=20537&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/muscat-split-feedstock?branchName=main&jobName=win&configuration=win%20win_64_build_typedebug" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64_build_typerelease</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=20537&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/muscat-split-feedstock?branchName=main&jobName=win&configuration=win%20win_64_build_typerelease" alt="variant">
                 </a>
               </td>
             </tr>
@@ -62,8 +83,12 @@ Current release info
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-muscat-green.svg)](https://anaconda.org/conda-forge/muscat) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/muscat.svg)](https://anaconda.org/conda-forge/muscat) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/muscat.svg)](https://anaconda.org/conda-forge/muscat) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/muscat.svg)](https://anaconda.org/conda-forge/muscat) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-muscat--core-green.svg)](https://anaconda.org/conda-forge/muscat-core) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/muscat-core.svg)](https://anaconda.org/conda-forge/muscat-core) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/muscat-core.svg)](https://anaconda.org/conda-forge/muscat-core) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/muscat-core.svg)](https://anaconda.org/conda-forge/muscat-core) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-muscat--core--debug-green.svg)](https://anaconda.org/conda-forge/muscat-core-debug) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/muscat-core-debug.svg)](https://anaconda.org/conda-forge/muscat-core-debug) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/muscat-core-debug.svg)](https://anaconda.org/conda-forge/muscat-core-debug) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/muscat-core-debug.svg)](https://anaconda.org/conda-forge/muscat-core-debug) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-muscat--debug-green.svg)](https://anaconda.org/conda-forge/muscat-debug) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/muscat-debug.svg)](https://anaconda.org/conda-forge/muscat-debug) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/muscat-debug.svg)](https://anaconda.org/conda-forge/muscat-debug) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/muscat-debug.svg)](https://anaconda.org/conda-forge/muscat-debug) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-muscat--devenv-green.svg)](https://anaconda.org/conda-forge/muscat-devenv) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/muscat-devenv.svg)](https://anaconda.org/conda-forge/muscat-devenv) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/muscat-devenv.svg)](https://anaconda.org/conda-forge/muscat-devenv) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/muscat-devenv.svg)](https://anaconda.org/conda-forge/muscat-devenv) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-muscat--devenv--debug-green.svg)](https://anaconda.org/conda-forge/muscat-devenv-debug) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/muscat-devenv-debug.svg)](https://anaconda.org/conda-forge/muscat-devenv-debug) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/muscat-devenv-debug.svg)](https://anaconda.org/conda-forge/muscat-devenv-debug) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/muscat-devenv-debug.svg)](https://anaconda.org/conda-forge/muscat-devenv-debug) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-muscat--extensions-green.svg)](https://anaconda.org/conda-forge/muscat-extensions) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/muscat-extensions.svg)](https://anaconda.org/conda-forge/muscat-extensions) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/muscat-extensions.svg)](https://anaconda.org/conda-forge/muscat-extensions) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/muscat-extensions.svg)](https://anaconda.org/conda-forge/muscat-extensions) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-muscat--extensions--debug-green.svg)](https://anaconda.org/conda-forge/muscat-extensions-debug) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/muscat-extensions-debug.svg)](https://anaconda.org/conda-forge/muscat-extensions-debug) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/muscat-extensions-debug.svg)](https://anaconda.org/conda-forge/muscat-extensions-debug) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/muscat-extensions-debug.svg)](https://anaconda.org/conda-forge/muscat-extensions-debug) |
 
 Installing muscat-split
 =======================
@@ -75,16 +100,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `muscat, muscat-core, muscat-devenv, muscat-extensions` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `muscat, muscat-core, muscat-core-debug, muscat-debug, muscat-devenv, muscat-devenv-debug, muscat-extensions, muscat-extensions-debug` can be installed with `conda`:
 
 ```
-conda install muscat muscat-core muscat-devenv muscat-extensions
+conda install muscat muscat-core muscat-core-debug muscat-debug muscat-devenv muscat-devenv-debug muscat-extensions muscat-extensions-debug
 ```
 
 or with `mamba`:
 
 ```
-mamba install muscat muscat-core muscat-devenv muscat-extensions
+mamba install muscat muscat-core muscat-core-debug muscat-debug muscat-devenv muscat-devenv-debug muscat-extensions muscat-extensions-debug
 ```
 
 It is possible to list all of the versions of `muscat` available on your platform with `conda`:
