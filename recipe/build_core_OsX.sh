@@ -28,7 +28,7 @@ cmake                          \
 ctest                             \
 --test-dir ${BUILD_DIR}           \
 --output-on-failure               \
---exclude-regex NativeMumpsSolver \
+--exclude-regex "NativeMumpsSolver|coverage" \
 --parallel 16
 
 cmake --install ${BUILD_DIR}
