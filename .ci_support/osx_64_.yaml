@@ -17,7 +17,7 @@ cxx_compiler_version:
 github_actions_labels:
 - cirun-openstack-gpu-large
 libboost_headers:
-- '1.86'
+- '1.88'
 libscotch:
 - 7.0.6
 llvm_openmp:
