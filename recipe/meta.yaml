@@ -1,4 +1,4 @@
-{% set version = "2.4.1" %}
+{% set version = "2.5.0" %}
 
 package:
   name: muscat-split
@@ -7,24 +7,23 @@ package:
 
 source:
   url: https://gitlab.com/drti/muscat/-/archive/{{ version }}/muscat-{{ version }}.tar.bz2
-  sha256: 80d0b27706f5811513a419fb97be4608770835343e667fb6e360eda1c20f8678
+  sha256: dd0c147a91b77c316fed078678775d3764435041ed23e5d05b68c6d3c4c3e722
 
 build:
-  number: 3
+  number: 0
 
 
 outputs:
   - name: muscat-core
     version: {{ version }}
-    script: build_core.sh      # [linux]
+    script: build_core.sh  # [linux]
     script: build_core_OsX.sh  # [osx]
-    script: bld_core.bat       # [win]
+    script: bld_core.bat  # [win]
 
     build:
       entry_points:
         - "MeshFileConvert = Muscat.IO.MeshFileConverter:Main"
-      skip_compile_pyc:
-        "MuscatParaViewPlugin.py"
+      skip_compile_pyc: "MuscatParaViewPlugin.py"
 
     requirements:
       build:
