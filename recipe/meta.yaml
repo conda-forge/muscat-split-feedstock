@@ -10,7 +10,7 @@ source:
   #url: https://gitlab.com/drti/muscat/-/archive/master/muscat-master.tar.bz2
   #sha256: 54fea06bb4f5934cfd869a89e627c163add21cdc705da50bcc59ebffe4dcca65
   url: https://gitlab.com/drti/muscat/-/archive/2.5hotfix/muscat-2.5hotfix.tar.bz2
-  sha256: 972b5224e28a28aa194ba8e607365bf760f14efd416c2fae1dd3860cb635233c
+  sha256: c9ea0fe16cbac913ca5561db12a67fd8db9db5a385f628a679b5c4039e382a38
   
 build:
   number: 0
