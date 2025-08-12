@@ -19,7 +19,7 @@ github_actions_labels:
 libboost_headers:
 - '1.86'
 libscotch:
-- 7.0.6
+- 7.0.8
 mkl_devel:
 - '2024'
 mumps_seq:
