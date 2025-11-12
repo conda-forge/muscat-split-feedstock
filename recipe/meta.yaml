@@ -10,7 +10,7 @@ source:
   sha256: 7f7fa414a67ce3da88ec521673e032321f072e9de4ad1a2632b1de64126f22da
 
 build:
-  number: 2
+  number: 3
 
 
 outputs:
@@ -53,7 +53,7 @@ outputs:
         - pip
         - setuptools
         # kokkos 4.6 is only available on linux
-        - kokkos >=4.6.00 h*  # [linux]
+        - kokkos >=4.7.* h*  # [linux]
         - kokkos =4.4.01 h*  # [not linux]
         # mmg software api changes can break the bridge (for version)
         - mmgsuite =5.8
@@ -81,7 +81,7 @@ outputs:
         - networkx >=3.0
         - dill
         - pywin32  # [win]
-        - kokkos >=4.6.00 h*  # [linux]
+        - kokkos >=4.7.* h*  # [linux]
         - kokkos =4.4.01 h*  # [not linux]
         - mmgsuite =5.8
     test:
@@ -174,7 +174,7 @@ outputs:
         - pywin32  # [win]
         - dill
         - cmake
-        - kokkos >=4.6.00 h*  # [linux]
+        - kokkos >=4.7.* h*  # [linux]
         - kokkos =4.4.01 h*  # [not linux]
         - mmgsuite =5.8
         - pycgns-core  # [py > 39]
