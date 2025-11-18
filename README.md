@@ -179,6 +179,7 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@casenave](https://github.com/casenave/)
 * [@fbordeu](https://github.com/fbordeu/)
 * [@laureleen06](https://github.com/laureleen06/)
 

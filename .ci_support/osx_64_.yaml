@@ -39,7 +39,5 @@ python:
 - 3.13.* *_cp313
 target_platform:
 - osx-64
-vtk:
-- 9.5.1
 zlib:
 - '1'
