@@ -108,7 +108,7 @@ outputs:
         - python
         - numpy >=2.*  # [py >= 313]
         - numpy =1.*  # [py < 313]
-        - vtk
+        - vtk <=9.4.2
         - psutil
         - h5py
         - meshio
@@ -117,7 +117,7 @@ outputs:
       run:
         - python
         - {{ pin_compatible('numpy') }}
-        - vtk
+        - vtk <=9.4.2
         - psutil
         - h5py
         - meshio
@@ -168,7 +168,7 @@ outputs:
         - networkx >=3.0
         - libboost-headers
         - pytest
-        - vtk
+        - vtk <=9.4.2
         - matplotlib-base
         - coverage
         - pywin32  # [win]
