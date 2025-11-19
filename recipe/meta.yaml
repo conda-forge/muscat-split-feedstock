@@ -10,7 +10,7 @@ source:
   sha256: 7f7fa414a67ce3da88ec521673e032321f072e9de4ad1a2632b1de64126f22da
 
 build:
-  number: 2
+  number: 3
 
 
 outputs:
@@ -53,7 +53,7 @@ outputs:
         - pip
         - setuptools
         # kokkos 4.6 is only available on linux
-        - kokkos >=4.6.00 h*  # [linux]
+        - kokkos =4.7.* h*  # [linux]
         - kokkos =4.4.01 h*  # [not linux]
         # mmg software api changes can break the bridge (for version)
         - mmgsuite =5.8
@@ -81,7 +81,7 @@ outputs:
         - networkx >=3.0
         - dill
         - pywin32  # [win]
-        - kokkos >=4.6.00 h*  # [linux]
+        - kokkos =4.7.* h*  # [linux]
         - kokkos =4.4.01 h*  # [not linux]
         - mmgsuite =5.8
     test:
@@ -108,7 +108,7 @@ outputs:
         - python
         - numpy >=2.*  # [py >= 313]
         - numpy =1.*  # [py < 313]
-        - vtk
+        - vtk <=9.4.2
         - psutil
         - h5py
         - meshio
@@ -117,7 +117,7 @@ outputs:
       run:
         - python
         - {{ pin_compatible('numpy') }}
-        - vtk
+        - vtk <=9.4.2
         - psutil
         - h5py
         - meshio
@@ -168,13 +168,13 @@ outputs:
         - networkx >=3.0
         - libboost-headers
         - pytest
-        - vtk
+        - vtk <=9.4.2
         - matplotlib-base
         - coverage
         - pywin32  # [win]
         - dill
         - cmake
-        - kokkos >=4.6.00 h*  # [linux]
+        - kokkos =4.7.* h*  # [linux]
         - kokkos =4.4.01 h*  # [not linux]
         - mmgsuite =5.8
         - pycgns-core  # [py > 39]
@@ -195,3 +195,4 @@ extra:
   recipe-maintainers:
     - fbordeu
     - laureleen06
+    - casenave
