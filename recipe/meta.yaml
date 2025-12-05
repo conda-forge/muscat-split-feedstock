@@ -48,7 +48,7 @@ outputs:
         - setuptools-scm
         - eigen
         - libboost-headers
-        - llvm-openmp=21.1.5 * # [osx]
+        - llvm-openmp=21.1.5 *  # [osx]
         - libgomp      # [linux]
         - pip
         - setuptools
