@@ -1,4 +1,4 @@
-{% set version = "fix-muscat-split" %}
+{% set version = "2.5.1_RC2" %}
 
 package:
   name: muscat-split
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://gitlab.com/messahel.ramzi/muscat/-/archive/{{ version }}/muscat-{{ version }}.tar.bz2
-  sha256: 09ae6a70776e45d42dcca88de4f9eb5adc8c7015c2e9538d5bae0e63a34feaf7
+  sha256: 44c0e1e2d4f9c37ac75ac9bf7fc52366582b2899af6f791037d746455d3fa3da
 
 build:
   number: 0
