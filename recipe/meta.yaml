@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://gitlab.com/messahel.ramzi/muscat/-/archive/{{ version }}/muscat-{{ version }}.tar.bz2
-  sha256: 44c0e1e2d4f9c37ac75ac9bf7fc52366582b2899af6f791037d746455d3fa3da
+  sha256: edb89ccb6436b486ee261f4e490fda31937e514bc6405ef20a8198a4aa5426cb
 
 build:
   number: 0
