@@ -34,6 +34,8 @@ outputs:
         - {{ compiler('cxx') }}
         - {{ stdlib('c') }}
         - cmake
+        - llvm-openmp=21.1.5  # [osx]
+        - libgomp      # [linux]
       host:
         - ninja
         - python
@@ -48,7 +50,7 @@ outputs:
         - setuptools-scm
         - eigen
         - libboost-headers
-        - llvm-openmp  # [osx]
+        - llvm-openmp=21.1.5  # [osx]
         - libgomp      # [linux]
         - pip
         - setuptools
