@@ -1,4 +1,4 @@
-{% set version = "2.5.0" %}
+{% set version = "2.5.1_RC2" %}
 
 package:
   name: muscat-split
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://gitlab.com/drti/muscat/-/archive/{{ version }}/muscat-{{ version }}.tar.bz2
-  sha256: 7f7fa414a67ce3da88ec521673e032321f072e9de4ad1a2632b1de64126f22da
+  sha256: 8572aff995e752a987f4247ebb4c6def326a64cc29c5a8578f9afe44a746a59e
 
 build:
-  number: 4
+  number: 0
 
 
 outputs:
@@ -52,7 +52,6 @@ outputs:
         - libgomp      # [linux]
         - pip
         - setuptools
-        # kokkos 4.6 is only available on linux
         - kokkos =4.7.* h*  # [linux]
         - kokkos =4.4.01 h*  # [not linux]
         - arborx =2.0.1
@@ -69,8 +68,7 @@ outputs:
         - cvxpy  # [not osx or py!=313 ]
         - h5py
         - matplotlib-base
-        - pycgns-core  # [py > 39]
-        - pycgns  # [py == 39]
+        - pycgns-core
         - mumps-seq   # [not osx]
         - mumps-include   # [linux]
       run:
@@ -92,9 +90,7 @@ outputs:
         - cvxpy  # [not osx or py!=313 ]
         - h5py
         - matplotlib-base
-        # pycngs-core only available for python 3.10+
-        - pycgns-core  # [py > 39]
-        - pycgns  # [py == 39]
+        - pycgns-core
         - mumps-seq   # [not osx]
       imports:
         - Muscat
@@ -127,8 +123,7 @@ outputs:
         - networkx >=3.0
         - mmgsuite =5.8
         - cvxpy  # [not osx or py!=313 ]
-        - pycgns-core  # [py > 39]
-        - pycgns  # [py == 39]
+        - pycgns-core
         - mumps-seq   # [not osx]
     test:
       imports:
@@ -180,8 +175,7 @@ outputs:
         - kokkos =4.4.01 h*  # [not linux]
         - arborx =2.0.1
         - mmgsuite =5.8
-        - pycgns-core  # [py > 39]
-        - pycgns  # [py == 39]
+        - pycgns-core
         - cvxpy  # [not osx or py!=313 ]
     test:
       imports:
