@@ -52,7 +52,8 @@ outputs:
         - libgomp      # [linux]
         - pip
         - setuptools
-        - kokkos =4.7.* h*
+        - kokkos =4.7.* h* # [linux]
+        - kokkos =4.4.01 h*  # [not linux]
         # mmg software api changes can break the bridge (for version)
         - mmgsuite =5.8
         - libscotch          # [not win]
@@ -78,7 +79,8 @@ outputs:
         - networkx >=3.0
         - dill
         - pywin32  # [win]
-        - kokkos =4.7.* h*
+        - kokkos =4.7.* h* # [linux]
+        - kokkos =4.4.01 h*  # [not linux]
         - mmgsuite =5.8
     test:
       requires:
@@ -167,7 +169,8 @@ outputs:
         - pywin32  # [win]
         - dill
         - cmake
-        - kokkos =4.7.* h*
+        - kokkos =4.7.* h* #  [linux]
+        - kokkos =4.4.01 h*  # [not linux]
         - mmgsuite =5.8
         - pycgns-core
         - cvxpy  # [not osx or py!=313 ]
