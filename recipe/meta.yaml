@@ -53,6 +53,7 @@ outputs:
         - pip
         - setuptools
         - kokkos =4.7.01 h*
+        - arborx =2.0.1 h*
         # mmg software api changes can break the bridge (for version)
         - mmgsuite =5.8
         - libscotch          # [not win]
@@ -79,6 +80,7 @@ outputs:
         - dill
         - pywin32  # [win]
         - kokkos =4.7.01 h*
+        - arborx =2.0.1 h*
         - mmgsuite =5.8
     test:
       requires:
@@ -168,6 +170,7 @@ outputs:
         - dill
         - cmake
         - kokkos =4.7.01 h*
+        - arborx =2.0.1 h*
         - mmgsuite =5.8
         - pycgns-core
         - cvxpy  # [not osx or py!=313 ]
