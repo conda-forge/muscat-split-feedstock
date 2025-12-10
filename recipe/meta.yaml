@@ -10,7 +10,7 @@ source:
   sha256: 60ce66aeabf8c71af1f3b39bc319cc853178c825a265c66e662bba671d3b202a
 
 build:
-  number: 0
+  number: 1
 
 
 outputs:
@@ -48,12 +48,12 @@ outputs:
         - setuptools-scm
         - eigen
         - libboost-headers
-        - llvm-openmp  # [osx]
+        - llvm-openmp >=21.1.5 *  # [osx]
         - libgomp      # [linux]
         - pip
         - setuptools
-        - kokkos =4.7.01 h*  # [linux]
-        - kokkos =4.4.01 h*  # [not linux]
+        - kokkos =4.7.01 h*
+        - arborx =2.0.1 h*
         # mmg software api changes can break the bridge (for version)
         - mmgsuite =5.8
         - libscotch          # [not win]
@@ -79,8 +79,8 @@ outputs:
         - networkx >=3.0
         - dill
         - pywin32  # [win]
-        - kokkos =4.7.01 h*  # [linux]
-        - kokkos =4.4.01 h*  # [not linux]
+        - kokkos =4.7.01 h*
+        - arborx =2.0.1 h*
         - mmgsuite =5.8
     test:
       requires:
@@ -169,8 +169,8 @@ outputs:
         - pywin32  # [win]
         - dill
         - cmake
-        - kokkos =4.7.01 h*  # [linux]
-        - kokkos =4.4.01 h*  # [not linux]
+        - kokkos =4.7.01 h*
+        - arborx =2.0.1 h*
         - mmgsuite =5.8
         - pycgns-core
         - cvxpy  # [not osx or py!=313 ]
