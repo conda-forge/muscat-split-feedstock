@@ -33,7 +33,7 @@ outputs:
         - ninja                                  # [build_platform != target_platform]
         - {{ compiler('cxx') }}
         - {{ stdlib('c') }}
-        - cmake
+        - cmake <4
         - llvm-openmp=21.1.5  # [osx]
         - libgomp      # [linux]
       host:
@@ -174,7 +174,7 @@ outputs:
         - coverage
         - pywin32  # [win]
         - dill
-        - cmake
+        - cmake <4
         - kokkos =4.7.01 h*
         - arborx =2.0.1 h*
         - mmgsuite =5.8
