@@ -1,3 +1,4 @@
+
 {% set version = "2.5.1_RC2" %}
 
 package:
@@ -69,8 +70,7 @@ outputs:
         - cvxpy  # [not osx or py!=313 ]
         - h5py
         - matplotlib-base
-        - pycgns-core  # [py > 39]
-        - pycgns  # [py == 39]
+        - pycgns-core
         - mumps-seq   # [not osx]
         - mumps-include   # [linux]
       run:
@@ -91,9 +91,7 @@ outputs:
         - cvxpy  # [not osx or py!=313 ]
         - h5py
         - matplotlib-base
-        # pycngs-core only available for python 3.10+
-        - pycgns-core  # [py > 39]
-        - pycgns  # [py == 39]
+        - pycgns-core
         - mumps-seq   # [not osx]
       imports:
         - Muscat
@@ -126,8 +124,7 @@ outputs:
         - networkx >=3.0
         - mmgsuite =5.8
         - cvxpy  # [not osx or py!=313 ]
-        - pycgns-core  # [py > 39]
-        - pycgns  # [py == 39]
+        - pycgns-core
         - mumps-seq   # [not osx]
     test:
       imports:
@@ -178,8 +175,7 @@ outputs:
         - kokkos =4.7.01 h*
         - arborx =2.0.1 h*
         - mmgsuite =5.8
-        - pycgns-core  # [py > 39]
-        - pycgns  # [py == 39]
+        - pycgns-core
         - cvxpy  # [not osx or py!=313 ]
     test:
       imports:
