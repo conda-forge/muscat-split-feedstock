@@ -1,4 +1,3 @@
-
 {% set version = "2.5.1_RC2" %}
 
 package:
@@ -35,8 +34,6 @@ outputs:
         - {{ compiler('cxx') }}
         - {{ stdlib('c') }}
         - cmake <4
-        - llvm-openmp=21.1.5  # [osx]
-        - libgomp      # [linux]
       host:
         - ninja
         - python
@@ -51,7 +48,7 @@ outputs:
         - setuptools-scm
         - eigen
         - libboost-headers
-        - llvm-openmp=21.1.5  # [osx]
+        - llvm-openmp =21.1.5  # [osx]
         - libgomp      # [linux]
         - pip
         - setuptools
