@@ -38,6 +38,8 @@ outputs:
         - ninja
         - python
         - numpy
+        # temporary until use of deprecated np.sum(generator) is removed
+        - numpy <2.4
         - cython
         - sympy
         #first version of eigency compatible with numpy 2
@@ -79,6 +81,9 @@ outputs:
         - kokkos =4.7.01 h*  # [linux]
         - kokkos =4.4.01 h*  # [not linux]
         - mmgsuite =5.8
+      run_constrained:
+        # TypeError: Calling np.sum(generator) is deprecated.
+        - numpy <2.4
     test:
       requires:
         - scipy
