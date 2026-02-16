@@ -68,6 +68,7 @@ outputs:
         - h5py
         - matplotlib-base
         - pycgns-core
+        - python-mumps
       run:
         - python
         - {{ pin_compatible('numpy') }}
