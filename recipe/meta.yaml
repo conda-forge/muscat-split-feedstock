@@ -68,8 +68,6 @@ outputs:
         - h5py
         - matplotlib-base
         - pycgns-core
-        - mumps-seq   # [not osx]
-        - mumps-include   # [linux]
       run:
         - python
         - {{ pin_compatible('numpy') }}
@@ -89,7 +87,7 @@ outputs:
         - h5py
         - matplotlib-base
         - pycgns-core
-        - mumps-seq   # [not osx]
+        - python-mumps
       imports:
         - Muscat
       commands:
@@ -122,7 +120,7 @@ outputs:
         - mmgsuite =5.8
         - cvxpy  # [not osx or py!=313 ]
         - pycgns-core
-        - mumps-seq   # [not osx]
+        - python-mumps
     test:
       imports:
         - psutil
@@ -174,6 +172,7 @@ outputs:
         - mmgsuite =5.8
         - pycgns-core
         - cvxpy  # [not osx or py!=313 ]
+        - python-mumps
     test:
       imports:
         - numpy
