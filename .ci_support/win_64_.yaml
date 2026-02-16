@@ -11,9 +11,9 @@ github_actions_labels:
 libboost_headers:
 - '1.88'
 mkl_devel:
-- '2024'
+- '2025'
 mumps_seq:
-- 5.8.1
+- 5.8.2
 numpy:
 - '2'
 pin_run_as_build:
