@@ -69,6 +69,7 @@ outputs:
         - matplotlib-base
         - pycgns-core
         - python-mumps
+        - vcomp14  # [win]
       run:
         - python
         - {{ pin_compatible('numpy') }}
@@ -81,6 +82,7 @@ outputs:
         - kokkos =4.7.01 h*  # [linux]
         - kokkos =4.4.01 h*  # [not linux]
         - mmgsuite =5.8
+        - vcomp14  # [win]
     test:
       requires:
         - scipy
