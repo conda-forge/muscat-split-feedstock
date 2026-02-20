@@ -70,7 +70,7 @@ outputs:
         - pycgns-core
         - mumps-seq   # [not osx]
         - mumps-include   # [linux]
-        - vcomp
+        - vcomp14  # [win]
       run:
         - python
         - scipy >=1.12
@@ -82,7 +82,7 @@ outputs:
         - kokkos =4.7.01 h*  # [linux]
         - kokkos =4.4.01 h*  # [not linux]
         - mmgsuite =5.8
-        - vcomp
+        - vcomp14  # [win]
       run_constrained:
         # TypeError: Calling np.sum(generator) is deprecated.
         - numpy <2.4
