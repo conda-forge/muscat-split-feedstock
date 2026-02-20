@@ -38,11 +38,8 @@ outputs:
         - ninja
         - python
         - numpy
-        # temporary until use of deprecated np.sum(generator) is removed
-        - numpy <2.4
         - cython
         - sympy
-        #first version of eigency compatible with numpy 2
         - eigency =3.4.0.4
         - mkl-devel
         - setuptools-scm
@@ -64,7 +61,7 @@ outputs:
         - pywin32
         - networkx >=3.0
         # cvxpy not available in osx for numpy 2 (numpy 1 not available on python 3.13)
-        - cvxpy  # [not osx or py!=313 ]
+        - cvxpy  # [not osx]
         - h5py
         - matplotlib-base
         - pycgns-core
@@ -83,13 +80,10 @@ outputs:
         - kokkos =4.4.01 h*  # [not linux]
         - mmgsuite =5.8
         - vcomp14  # [win]
-      run_constrained:
-        # TypeError: Calling np.sum(generator) is deprecated.
-        - numpy <2.4
     test:
       requires:
         - scipy
-        - cvxpy  # [not osx or py!=313 ]
+        - cvxpy  # [not osx]
         - h5py
         - matplotlib-base
         - pycgns-core
@@ -106,8 +100,7 @@ outputs:
     requirements:
       host:
         - python
-        - numpy >=2.*  # [py >= 313]
-        - numpy =1.*  # [py < 313]
+        - numpy >=2.*
         - vtk <=9.4.2
         - psutil
         - h5py
@@ -124,7 +117,7 @@ outputs:
         - pyvista
         - networkx >=3.0
         - mmgsuite =5.8
-        - cvxpy  # [not osx or py!=313 ]
+        - cvxpy  # [not osx]
         - pycgns-core
         - mumps-seq   # [not osx]
     test:
@@ -154,8 +147,7 @@ outputs:
       run:
         - {{ compiler('cxx') }}
         - python
-        - numpy >=2.*  # [py >= 313]
-        - numpy =1.*  # [py < 313]
+        - numpy >=2.*
         - sympy
         - cython
         - eigency =3.4.0.4
@@ -177,7 +169,7 @@ outputs:
         - kokkos =4.4.01 h*  # [not linux]
         - mmgsuite =5.8
         - pycgns-core
-        - cvxpy  # [not osx or py!=313 ]
+        - cvxpy  # [not osx]
     test:
       imports:
         - numpy
