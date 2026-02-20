@@ -6,7 +6,7 @@ package:
 
 
 source:
-  url: https://gitlab.com/messahel.ramzi/muscat/-/archive/{{ version }}/muscat-{{ version }}.tar.bz2
+  url: https://gitlab.com/drti/muscat/-/archive/{{ version }}/muscat-{{ version }}.tar.bz2
   sha256: 94a0a5ebe7fce0fa05027c8f98d7227723faecd5bf4e8784e0024ac43df2d944
 
 build:
