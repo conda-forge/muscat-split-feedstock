@@ -84,7 +84,7 @@ outputs:
     test:
       requires:
         - scipy
-        - cvxpy  # [not osx or py!=313 ]
+        - cvxpy  # [not osx]
         - h5py
         - matplotlib-base
         - pycgns-core
