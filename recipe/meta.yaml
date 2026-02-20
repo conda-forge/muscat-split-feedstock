@@ -91,6 +91,7 @@ outputs:
       imports:
         - Muscat
       commands:
+        - set OMP_NUM_THREADS=1
         - python -u -m Muscat.Helpers.Check -k Which -k Mumps  # [osx]
         - python -u -m Muscat.Helpers.Check  # [linux]
         - python -u -m Muscat.Helpers.Check -k AnisotropicMetricComputation -k Mumps  # [win]
@@ -110,6 +111,7 @@ outputs:
       run:
         - python
         - {{ pin_compatible('numpy') }}
+        - {{ pin_compatible('hdf5') }}
         - vtk <=9.4.2
         - psutil
         - h5py
