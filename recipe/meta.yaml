@@ -17,11 +17,11 @@ build:
 outputs:
   - name: muscat-core
     version: {{ version }}
-    script: build_core.sh  # [linux]
-    script: build_core_OsX.sh  # [osx]
-    script: bld_core.bat  # [win]
 
     build:
+      script: build_core.sh  # [linux]
+      script: build_core_OsX.sh  # [osx]
+      script: bld_core.bat  # [win]
       entry_points:
         - "MeshFileConvert = Muscat.IO.MeshFileConverter:Main"
       skip_compile_pyc: "MuscatParaViewPlugin.py"
