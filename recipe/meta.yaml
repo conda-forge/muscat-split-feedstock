@@ -60,8 +60,7 @@ outputs:
         - dill
         - pywin32
         - networkx >=3.0
-        # cvxpy not available in osx for numpy 2 (numpy 1 not available on python 3.13)
-        - cvxpy  # [not osx or py!=313 ]
+        - cvxpy
         - h5py
         - matplotlib-base
         - pycgns-core
@@ -82,7 +81,7 @@ outputs:
     test:
       requires:
         - scipy
-        - cvxpy  # [not osx or py!=313 ]
+        - cvxpy
         - h5py
         - matplotlib-base
         - pycgns-core
@@ -116,7 +115,7 @@ outputs:
         - pyvista
         - networkx >=3.0
         - mmgsuite =5.8
-        - cvxpy  # [not osx or py!=313 ]
+        - cvxpy
         - pycgns-core
         - mumps-seq   # [not osx]
     test:
@@ -168,7 +167,7 @@ outputs:
         - kokkos =4.4.01 h*  # [not linux]
         - mmgsuite =5.8
         - pycgns-core
-        - cvxpy  # [not osx or py!=313 ]
+        - cvxpy
     test:
       imports:
         - numpy
