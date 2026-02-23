@@ -65,6 +65,7 @@ outputs:
         - pycgns-core
         - mumps-seq   # [not osx]
         - mumps-include   # [linux]
+        - vcomp14  # [win]
       run:
         - python
         - {{ pin_compatible('numpy') }}
@@ -76,6 +77,7 @@ outputs:
         - pywin32  # [win]
         - kokkos =4.7.01 h*
         - mmgsuite =5.8
+        - vcomp14  # [win]
     test:
       requires:
         - scipy
