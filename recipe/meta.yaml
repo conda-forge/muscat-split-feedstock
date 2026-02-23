@@ -58,7 +58,7 @@ outputs:
         - zlib
         - scipy >=1.12
         - dill
-        - pywin32
+        - pywin32  # [win]
         - networkx >=3.0
         - cvxpy
         - h5py
@@ -101,7 +101,7 @@ outputs:
       host:
         - python
         - numpy >=2.*
-        - vtk <=9.4.2
+        - vtk
         - psutil
         - h5py
         - meshio
@@ -111,7 +111,7 @@ outputs:
         - python
         - {{ pin_compatible('numpy') }}
         - {{ pin_compatible('hdf5') }}
-        - vtk <=9.4.2
+        - vtk
         - psutil
         - h5py
         - meshio
@@ -160,7 +160,7 @@ outputs:
         - networkx >=3.0
         - libboost-headers
         - pytest
-        - vtk <=9.4.2
+        - vtk
         - matplotlib-base
         - coverage
         - pywin32  # [win]
