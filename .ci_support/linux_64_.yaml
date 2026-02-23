@@ -19,7 +19,7 @@ libboost_headers:
 libscotch:
 - 7.0.10
 mkl_devel:
-- '2024'
+- '2025'
 mumps_seq:
 - 5.8.1
 numpy:
