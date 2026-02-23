@@ -1,4 +1,4 @@
-{% set version = "2.5.1" %}
+{% set version = "2.5.1.1" %}
 
 package:
   name: muscat-split
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://gitlab.com/drti/muscat/-/archive/{{ version }}/muscat-{{ version }}.tar.bz2
-  sha256: 60ce66aeabf8c71af1f3b39bc319cc853178c825a265c66e662bba671d3b202a
+  sha256: 1a97cb166959ef786469668b727c0c53ebfe115a466ca895440a1a189570187f
 
 build:
   number: 1
@@ -37,12 +37,9 @@ outputs:
       host:
         - ninja
         - python
-        # for the moment numpy 2 is activated only for python 3.13 (numpy 1 not available on py 3.13)
-        - numpy >=2.*  # [py >= 313]
-        - numpy =1.*  # [py < 313]
+        - numpy >=2.*
         - cython
         - sympy
-        #first version of eigency compatible with numpy 2
         - eigency =3.4.0.4
         - mkl-devel
         - setuptools-scm
@@ -70,6 +67,7 @@ outputs:
         - pycgns-core
         - mumps-seq   # [not osx]
         - mumps-include   # [linux]
+        - vcomp14  # [win]
       run:
         - python
         - {{ pin_compatible('numpy') }}
@@ -82,6 +80,7 @@ outputs:
         - kokkos =4.7.01 h*  # [linux]
         - kokkos =4.4.01 h*  # [not linux]
         - mmgsuite =5.8
+        - vcomp14  # [win]
     test:
       requires:
         - scipy
@@ -102,8 +101,7 @@ outputs:
     requirements:
       host:
         - python
-        - numpy >=2.*  # [py >= 313]
-        - numpy =1.*  # [py < 313]
+        - numpy >=2.*
         - vtk <=9.4.2
         - psutil
         - h5py
