@@ -14,6 +14,45 @@ Current build status
 
 
 <table>
+    
+  <tr>
+    <td>Azure</td>
+    <td>
+      <details>
+        <summary>
+          <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=20537&branchName=main">
+            <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/muscat-split-feedstock?branchName=main">
+          </a>
+        </summary>
+        <table>
+          <thead><tr><th>Variant</th><th>Status</th></tr></thead>
+          <tbody><tr>
+              <td>linux_64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=20537&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/muscat-split-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=20537&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/muscat-split-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=20537&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/muscat-split-feedstock?branchName=main&jobName=win&configuration=win%20win_64_" alt="variant">
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </details>
+    </td>
+  </tr>
 </table>
 
 Current release info
@@ -21,7 +60,10 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-muscat--split-green.svg)](https://anaconda.org/conda-forge/muscat-split) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/muscat-split.svg)](https://anaconda.org/conda-forge/muscat-split) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/muscat-split.svg)](https://anaconda.org/conda-forge/muscat-split) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/muscat-split.svg)](https://anaconda.org/conda-forge/muscat-split) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-muscat-green.svg)](https://anaconda.org/conda-forge/muscat) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/muscat.svg)](https://anaconda.org/conda-forge/muscat) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/muscat.svg)](https://anaconda.org/conda-forge/muscat) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/muscat.svg)](https://anaconda.org/conda-forge/muscat) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-muscat--core-green.svg)](https://anaconda.org/conda-forge/muscat-core) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/muscat-core.svg)](https://anaconda.org/conda-forge/muscat-core) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/muscat-core.svg)](https://anaconda.org/conda-forge/muscat-core) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/muscat-core.svg)](https://anaconda.org/conda-forge/muscat-core) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-muscat--devenv-green.svg)](https://anaconda.org/conda-forge/muscat-devenv) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/muscat-devenv.svg)](https://anaconda.org/conda-forge/muscat-devenv) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/muscat-devenv.svg)](https://anaconda.org/conda-forge/muscat-devenv) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/muscat-devenv.svg)](https://anaconda.org/conda-forge/muscat-devenv) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-muscat--extensions-green.svg)](https://anaconda.org/conda-forge/muscat-extensions) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/muscat-extensions.svg)](https://anaconda.org/conda-forge/muscat-extensions) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/muscat-extensions.svg)](https://anaconda.org/conda-forge/muscat-extensions) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/muscat-extensions.svg)](https://anaconda.org/conda-forge/muscat-extensions) |
 
 Installing muscat-split
 =======================
@@ -33,41 +75,41 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `muscat-split` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `muscat, muscat-core, muscat-devenv, muscat-extensions` can be installed with `conda`:
 
 ```
-conda install muscat-split
-```
-
-or with `mamba`:
-
-```
-mamba install muscat-split
-```
-
-It is possible to list all of the versions of `muscat-split` available on your platform with `conda`:
-
-```
-conda search muscat-split --channel conda-forge
+conda install muscat muscat-core muscat-devenv muscat-extensions
 ```
 
 or with `mamba`:
 
 ```
-mamba search muscat-split --channel conda-forge
+mamba install muscat muscat-core muscat-devenv muscat-extensions
+```
+
+It is possible to list all of the versions of `muscat` available on your platform with `conda`:
+
+```
+conda search muscat --channel conda-forge
+```
+
+or with `mamba`:
+
+```
+mamba search muscat --channel conda-forge
 ```
 
 Alternatively, `mamba repoquery` may provide more information:
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search muscat-split --channel conda-forge
+mamba repoquery search muscat --channel conda-forge
 
-# List packages depending on `muscat-split`:
-mamba repoquery whoneeds muscat-split --channel conda-forge
+# List packages depending on `muscat`:
+mamba repoquery whoneeds muscat --channel conda-forge
 
-# List dependencies of `muscat-split`:
-mamba repoquery depends muscat-split --channel conda-forge
+# List dependencies of `muscat`:
+mamba repoquery depends muscat --channel conda-forge
 ```
 
 
