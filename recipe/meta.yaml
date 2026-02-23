@@ -37,12 +37,9 @@ outputs:
       host:
         - ninja
         - python
-        # for the moment numpy 2 is activated only for python 3.13 (numpy 1 not available on py 3.13)
-        - numpy >=2.*  # [py >= 313]
-        - numpy =1.*  # [py < 313]
+        - numpy >=2.*
         - cython
         - sympy
-        #first version of eigency compatible with numpy 2
         - eigency =3.4.0.4
         - mkl-devel
         - setuptools-scm
@@ -102,8 +99,7 @@ outputs:
     requirements:
       host:
         - python
-        - numpy >=2.*  # [py >= 313]
-        - numpy =1.*  # [py < 313]
+        - numpy >=2.*
         - vtk <=9.4.2
         - psutil
         - h5py
@@ -150,8 +146,7 @@ outputs:
       run:
         - {{ compiler('cxx') }}
         - python
-        - numpy >=2.*  # [py >= 313]
-        - numpy =1.*  # [py < 313]
+        - numpy >=2.*
         - sympy
         - cython
         - eigency =3.4.0.4
