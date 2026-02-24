@@ -81,6 +81,7 @@ outputs:
         - arborx =2.0.1 h*
         - mmgsuite =5.8
         - vcomp14  # [win]
+        - pycgns-core
     test:
       requires:
         - scipy
