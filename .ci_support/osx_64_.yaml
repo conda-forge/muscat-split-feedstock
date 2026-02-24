@@ -19,7 +19,7 @@ github_actions_labels:
 libboost_headers:
 - '1.88'
 libscotch:
-- 7.0.10
+- 7.0.11
 llvm_openmp:
 - '19'
 macos_machine:
