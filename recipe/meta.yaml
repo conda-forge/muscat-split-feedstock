@@ -1,4 +1,4 @@
-{% set version = "2.5.1" %}
+{% set version = "2.5.1.1" %}
 
 package:
   name: muscat-split
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://gitlab.com/drti/muscat/-/archive/{{ version }}/muscat-{{ version }}.tar.bz2
-  sha256: 60ce66aeabf8c71af1f3b39bc319cc853178c825a265c66e662bba671d3b202a
+  sha256: 1a97cb166959ef786469668b727c0c53ebfe115a466ca895440a1a189570187f
 
 build:
   number: 0
@@ -37,12 +37,9 @@ outputs:
       host:
         - ninja
         - python
-        # for the moment numpy 2 is activated only for python 3.13 (numpy 1 not available on py 3.13)
-        - numpy >=2.*  # [py >= 313]
-        - numpy =1.*  # [py < 313]
+        - numpy >=2.*
         - cython
         - sympy
-        #first version of eigency compatible with numpy 2
         - eigency =3.4.0.4
         - mkl-devel
         - setuptools-scm
@@ -64,12 +61,12 @@ outputs:
         - pywin32
         - networkx >=3.0
         # cvxpy not available in osx for numpy 2 (numpy 1 not available on python 3.13)
-        - cvxpy  # [not osx or py!=313 ]
+        - cvxpy  # [not osx]
         - h5py
         - matplotlib-base
         - pycgns-core
-        - mumps-seq   # [not osx]
-        - mumps-include   # [linux]
+        - python-mumps
+        - vcomp14  # [win]
       run:
         - python
         - {{ pin_compatible('numpy') }}
@@ -82,14 +79,15 @@ outputs:
         - kokkos =4.7.01 h*  # [linux]
         - kokkos =4.4.01 h*  # [not linux]
         - mmgsuite =5.8
+        - vcomp14  # [win]
     test:
       requires:
         - scipy
-        - cvxpy  # [not osx or py!=313 ]
+        - cvxpy  # [not osx]
         - h5py
         - matplotlib-base
         - pycgns-core
-        - mumps-seq   # [not osx]
+        - python-mumps
       imports:
         - Muscat
       commands:
@@ -102,8 +100,7 @@ outputs:
     requirements:
       host:
         - python
-        - numpy >=2.*  # [py >= 313]
-        - numpy =1.*  # [py < 313]
+        - numpy >=2.*
         - vtk <=9.4.2
         - psutil
         - h5py
@@ -120,9 +117,9 @@ outputs:
         - pyvista
         - networkx >=3.0
         - mmgsuite =5.8
-        - cvxpy  # [not osx or py!=313 ]
+        - cvxpy  # [not osx]
         - pycgns-core
-        - mumps-seq   # [not osx]
+        - python-mumps
     test:
       imports:
         - psutil
@@ -150,8 +147,7 @@ outputs:
       run:
         - {{ compiler('cxx') }}
         - python
-        - numpy >=2.*  # [py >= 313]
-        - numpy =1.*  # [py < 313]
+        - numpy >=2.*
         - sympy
         - cython
         - eigency =3.4.0.4
@@ -173,7 +169,8 @@ outputs:
         - kokkos =4.4.01 h*  # [not linux]
         - mmgsuite =5.8
         - pycgns-core
-        - cvxpy  # [not osx or py!=313 ]
+        - cvxpy  # [not osx]
+        - python-mumps
     test:
       imports:
         - numpy
