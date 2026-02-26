@@ -1,4 +1,4 @@
-{% set version = "2.5.1.2" %}
+{% set version = "2.5.1.1" %}
 
 package:
   name: muscat-split
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://gitlab.com/drti/muscat/-/archive/{{ version }}/muscat-{{ version }}.tar.bz2
-  sha256: 94a0a5ebe7fce0fa05027c8f98d7227723faecd5bf4e8784e0024ac43df2d944
+  sha256: 1a97cb166959ef786469668b727c0c53ebfe115a466ca895440a1a189570187f
 
 build:
   number: 0
