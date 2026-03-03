@@ -1,0 +1,182 @@
+schema_version: 1
+
+context:
+  name: Muscat
+  version: 2.5.1.1
+
+recipe:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+
+
+source:
+  - url: https://gitlab.com/drti/muscat/-/archive/${{ version }}/${{ name|lower }}-${{ version }}.tar.bz2
+    sha256: 1a97cb166959ef786469668b727c0c53ebfe115a466ca895440a1a189570187f
+
+build:
+  number: 0
+
+outputs:
+  - package:
+      name: muscat-core
+    build:
+      script:
+        - if: linux
+          then: build_core.sh
+        - if: osx
+          then: build_core_OsX.sh
+        - if: win
+          then: bld_core.bat
+
+      python:
+        entry_points:
+          - MeshFileConvert = Muscat.IO.MeshFileConverter:Main
+
+
+    requirements:
+      build:
+        - if: build_platform != target_platform
+          then:
+            - python
+            - cross-python_${{ target_platform }}
+            - cython
+            - ninja
+        - ${{ compiler('cxx') }}
+        - ${{ stdlib('c') }}
+        - cmake
+      host:
+        - ninja
+        - python
+        - numpy
+        - cython
+        - sympy
+        - eigency =3.4.0.4
+        - mkl-devel
+        - setuptools-scm
+        - eigen
+        - libboost-headers
+        - if: osx
+          then: llvm-openmp
+        - pip
+        - setuptools
+        - if: linux
+          then: kokkos =4.7.01 h*
+          else: kokkos =4.4.01 h*
+        - mmgsuite =5.8
+        - if: not win
+          then: libscotch
+        - zlib
+        - scipy >=1.12
+        - dill
+        - networkx >=3.0
+        - if: linux
+          then: libgomp
+        - if: win
+          then: pywin32
+        - cvxpy
+        - mmgsuite =5.8
+        - pycgns-core
+        - h5py
+      run:
+        - python
+        - numpy
+        - sympy
+        - eigency =3.4.0.4
+        - scipy >=1.12
+        - dill
+        - pyvista
+        - networkx >=3
+        - mmgsuite =5.8
+        - pycgns-core
+        - if: osx
+          then: llvm-openmp
+        - if: linux
+          then: libgomp
+        - if: not win
+          then: libscotch
+        - if: win
+          then: pywin32
+        - if: linux
+          then: kokkos =4.7.01 h*
+        - if: not linux
+          then: kokkos =4.4.01 h*
+        - cvxpy
+        - mmgsuite =5.8
+
+    tests:
+      - python:
+          imports:
+            - Muscat
+      - requirements:
+          run:
+            - h5py
+            - cvxpy
+            - h5py
+            - matplotlib-base
+        script:
+          - if: osx
+            then: python -u -m Muscat.Helpers.Check -k Which -k Mumps
+          - if: linux
+            then: python -u -m Muscat.Helpers.Check -k Mumps
+          - if: win
+            then: python -u -m Muscat.Helpers.Check -k AnisotropicMetricComputation -k Mumps
+
+
+  - package:
+      name: muscat-extensions
+    requirements:
+      run:
+        - python
+        - numpy
+        - vtk <=9.4.2
+        - psutil
+        - h5py
+        - meshio
+        - pyvista
+        - networkx >=3
+        - mmgsuite =5.8
+        - pycgns-core
+        - python-mumps
+        - cvxpy
+
+    tests:
+      - python:
+          imports:
+            - psutil
+            - h5py
+            - meshio
+            - networkx
+
+  - package:
+      name: muscat
+    requirements:
+      run:
+        - ${{ pin_subpackage('muscat-core', upper_bound='x.x.x') }}
+        - ${{ pin_subpackage('muscat-extensions', upper_bound='x.x.x') }}
+
+    tests:
+      - python:
+          imports:
+            - Muscat
+
+      - script:
+          - if: osx
+            then: python -u -m Muscat.Helpers.Check -k Which
+          - if: linux
+            then: python -u -m Muscat.Helpers.Check
+          - if: win
+            then: python -u -m Muscat.Helpers.Check -k AnisotropicMetricComputation
+
+
+about:
+  homepage: https://gitlab.com/drti/muscat
+  license: BSD-3-Clause
+  license_file: LICENSE.txt
+  summary: Tools for finite element computations
+
+extra:
+  recipe-maintainers:
+    - fbordeu
+    - laureleen06
+    - casenave
