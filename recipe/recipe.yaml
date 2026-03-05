@@ -81,6 +81,7 @@ outputs:
         - python
         - numpy
         - sympy
+        - dill
         - eigency =3.4.0.4
         - scipy >=1.12
         - networkx >=3
