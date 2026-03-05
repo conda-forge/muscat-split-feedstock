@@ -96,6 +96,7 @@ outputs:
         - kokkos =4.7.01 h*
         - arborx =2.0.1 h*
         - cvxpy
+        - pycgns-core
 
     tests:
       - python:
@@ -107,7 +108,6 @@ outputs:
             - cvxpy
             - matplotlib-base
         script:
-
           - if: osx
             then:
               - export OMP_NUM_THREADS=1
@@ -143,9 +143,13 @@ outputs:
 
       - script:
           - if: osx
-            then: python -u -m Muscat.Helpers.Check -k Which
+            then:
+              - export OMP_NUM_THREADS=1
+              - python -u -m Muscat.Helpers.Check -k Which
           - if: linux
-            then: python -u -m Muscat.Helpers.Check
+            then:
+              - export OMP_NUM_THREADS=1
+              - python -u -m Muscat.Helpers.Check
           - if: win
             then: python -u -m Muscat.Helpers.Check -k AnisotropicMetricComputation
 
