@@ -62,7 +62,6 @@ Current release info
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-muscat-green.svg)](https://anaconda.org/conda-forge/muscat) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/muscat.svg)](https://anaconda.org/conda-forge/muscat) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/muscat.svg)](https://anaconda.org/conda-forge/muscat) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/muscat.svg)](https://anaconda.org/conda-forge/muscat) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-muscat--core-green.svg)](https://anaconda.org/conda-forge/muscat-core) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/muscat-core.svg)](https://anaconda.org/conda-forge/muscat-core) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/muscat-core.svg)](https://anaconda.org/conda-forge/muscat-core) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/muscat-core.svg)](https://anaconda.org/conda-forge/muscat-core) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-muscat--extensions-green.svg)](https://anaconda.org/conda-forge/muscat-extensions) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/muscat-extensions.svg)](https://anaconda.org/conda-forge/muscat-extensions) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/muscat-extensions.svg)](https://anaconda.org/conda-forge/muscat-extensions) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/muscat-extensions.svg)](https://anaconda.org/conda-forge/muscat-extensions) |
 
 Installing muscat
 =================
@@ -74,16 +73,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `muscat, muscat-core, muscat-extensions` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `muscat, muscat-core` can be installed with `conda`:
 
 ```
-conda install muscat muscat-core muscat-extensions
+conda install muscat muscat-core
 ```
 
 or with `mamba`:
 
 ```
-mamba install muscat muscat-core muscat-extensions
+mamba install muscat muscat-core
 ```
 
 It is possible to list all of the versions of `muscat` available on your platform with `conda`:
