@@ -57,12 +57,11 @@ outputs:
         - eigen
         - libboost-headers
         - if: osx
-          then: llvm-openmp
+          then: llvm-openmp >=21.1.5
         - pip
         - setuptools
-        - if: linux
-          then: kokkos =4.7.01 h*
-          else: kokkos =4.4.01 h*
+        - kokkos =4.7.01 h*
+        - arborx =2.0.1 h*
         - mmgsuite =5.8
         - if: not win
           then: libscotch
@@ -84,25 +83,19 @@ outputs:
         - sympy
         - eigency =3.4.0.4
         - scipy >=1.12
-        - dill
-        - pyvista
         - networkx >=3
         - mmgsuite =5.8
-        - pycgns-core
         - if: osx
-          then: llvm-openmp
+          then: llvm-openmp >=21.1.5
         - if: linux
           then: libgomp
         - if: not win
           then: libscotch
         - if: win
           then: pywin32
-        - if: linux
-          then: kokkos =4.7.01 h*
-        - if: not linux
-          then: kokkos =4.4.01 h*
+        - kokkos =4.7.01 h*
+        - arborx =2.0.1 h*
         - cvxpy
-        - mmgsuite =5.8
 
     tests:
       - python:
@@ -112,53 +105,41 @@ outputs:
           run:
             - h5py
             - cvxpy
-            - h5py
             - matplotlib-base
         script:
+
           - if: osx
-            then: python -u -m Muscat.Helpers.Check -k Which -k Mumps
+            then:
+              - export OMP_NUM_THREADS=1
+              - python -u -m Muscat.Helpers.Check -k Which -k Mumps
           - if: linux
-            then: python -u -m Muscat.Helpers.Check -k Mumps
+            then:
+              - export OMP_NUM_THREADS=1
+              - python -u -m Muscat.Helpers.Check -k Mumps
           - if: win
             then: python -u -m Muscat.Helpers.Check -k AnisotropicMetricComputation -k Mumps
 
-
-  - package:
-      name: muscat-extensions
-    requirements:
-      run:
-        - python
-        - numpy
-        - vtk <=9.4.2
-        - psutil
-        - h5py
-        - meshio
-        - pyvista
-        - networkx >=3
-        - mmgsuite =5.8
-        - pycgns-core
-        - python-mumps
-        - cvxpy
-
-    tests:
-      - python:
-          imports:
-            - psutil
-            - h5py
-            - meshio
-            - networkx
 
   - package:
       name: muscat
     requirements:
       run:
         - ${{ pin_subpackage('muscat-core', upper_bound='x.x.x') }}
-        - ${{ pin_subpackage('muscat-extensions', upper_bound='x.x.x') }}
+        - vtk <=9.4.2
+        - psutil
+        - h5py
+        - meshio
+        - pyvista
+        - python-mumps
 
-    tests:
+      tests:
       - python:
           imports:
             - Muscat
+            - psutil
+            - h5py
+            - meshio
+            - networkx
 
       - script:
           - if: osx
@@ -167,7 +148,6 @@ outputs:
             then: python -u -m Muscat.Helpers.Check
           - if: win
             then: python -u -m Muscat.Helpers.Check -k AnisotropicMetricComputation
-
 
 about:
   homepage: https://gitlab.com/drti/muscat
