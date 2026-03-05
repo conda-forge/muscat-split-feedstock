@@ -132,7 +132,7 @@ outputs:
         - pyvista
         - python-mumps
 
-      tests:
+    tests:
       - python:
           imports:
             - Muscat
