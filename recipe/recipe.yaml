@@ -126,7 +126,7 @@ outputs:
     requirements:
       run:
         - ${{ pin_subpackage('muscat-core', upper_bound='x.x.x') }}
-        - vtk <=9.4.2
+        - vtk
         - psutil
         - h5py
         - meshio
