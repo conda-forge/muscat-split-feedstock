@@ -76,6 +76,7 @@ outputs:
         - h5py
         - matplotlib-base
         - pycgns-core
+        - networkx >=3
       run:
         - python
         - scipy >=1.12
