@@ -48,7 +48,7 @@ outputs:
       host:
         - ninja
         - python
-        - numpy
+        - numpy >=2
         - cython
         - sympy
         - eigency =3.4.0.4
@@ -58,6 +58,8 @@ outputs:
         - libboost-headers
         - if: osx
           then: llvm-openmp >=21.1.5
+        - if: linux
+          then: libgomp
         - pip
         - setuptools
         - kokkos =4.7.01 h*
@@ -68,23 +70,19 @@ outputs:
         - zlib
         - scipy >=1.12
         - dill
-        - networkx >=3.0
-        - if: linux
-          then: libgomp
         - if: win
           then: pywin32
         - cvxpy
-        - mmgsuite =5.8
-        - pycgns-core
         - h5py
+        - matplotlib-base
+        - pycgns-core
       run:
         - python
-        - numpy
-        - sympy
-        - dill
-        - eigency =3.4.0.4
         - scipy >=1.12
+        - sympy
+        - eigency =3.4.0.4
         - networkx >=3
+        - dill
         - mmgsuite =5.8
         - if: osx
           then: llvm-openmp >=21.1.5
@@ -131,6 +129,7 @@ outputs:
         - h5py
         - meshio
         - pyvista
+        - networkx >=3
         - python-mumps
 
     tests:
