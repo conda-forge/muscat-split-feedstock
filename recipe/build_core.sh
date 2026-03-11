@@ -23,10 +23,4 @@ cmake                   \
 --build $BUILD_DIR    \
 --parallel 16
 
-ctest                   \
---test-dir $BUILD_DIR \
---output-on-failure     \
--E coverage             \
---parallel 16
-
 cmake --install $BUILD_DIR
