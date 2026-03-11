@@ -78,7 +78,25 @@ outputs:
         - pycgns-core
         - networkx >=3
       run:
+        - python
+        - scipy >=1.12
+        - sympy
+        - eigency =3.4.0.4
+        - networkx >=3
         - dill
+        - mmgsuite =5.8
+        - if: osx
+          then: llvm-openmp >=21.1.5
+        - if: linux
+          then: libgomp
+        - if: not win
+          then: libscotch
+        - if: win
+          then: pywin32
+        - kokkos =4.7.01 h*
+        - arborx =2.0.1 h*
+        - cvxpy
+        - pycgns-core
 
     tests:
       - python:
