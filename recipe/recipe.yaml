@@ -16,8 +16,6 @@ source:
 
 build:
   number: 0
-  skip:
-    - win and match(python,"3.10")
 
 outputs:
   - package:
@@ -134,7 +132,7 @@ outputs:
           imports:
             - Muscat
             - psutil
-            - pyvista # pyvista is the reason for removing win py310 build in conda_build_config.yaml
+            ##- pyvista # Commenting pyvista since win py310 build is broken
             - meshio
             - mumps
 
