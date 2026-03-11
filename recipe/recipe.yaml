@@ -123,7 +123,7 @@ outputs:
         - vtk
         - psutil
         - meshio
-        - pyvista
+        - pyvista >=0.47
         - python-mumps
 
     tests:
@@ -132,7 +132,7 @@ outputs:
           imports:
             - Muscat
             - psutil
-            ##- pyvista # Commenting pyvista since win py310 build is broken
+            - pyvista # Commenting pyvista since win py310 build is broken
             - meshio
             - mumps
 
