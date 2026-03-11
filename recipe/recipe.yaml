@@ -86,17 +86,14 @@ outputs:
         - arborx =2.0.1 h*
         - cvxpy
         - pycgns-core
+        - h5py
+        - matplotlib-base
 
     tests:
       - python:
           imports:
             - Muscat
-      - requirements:
-          run:
-            - h5py
-            - cvxpy
-            - matplotlib-base
-        script:
+      - script:
           - if: osx
             then:
               - export OMP_NUM_THREADS=1
