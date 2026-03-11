@@ -5,7 +5,7 @@ context:
   version: 2.5.1.1
 
 recipe:
-  name: ${{ name|lower }}
+  name: muscat-split
   version: ${{ version }}
 
 
@@ -46,44 +46,51 @@ outputs:
         - ${{ stdlib('c') }}
         - cmake
       host:
-        - sympy
+
+        ## Build dependencies only
         - ninja
-        - python
-        - cython
-        - eigency =3.4.0.4
-        - mkl-devel
+        - pip
         - setuptools-scm
-        - eigen
+        - setuptools
+        - cython
+        - mkl-devel
         - libboost-headers
+
+        ## Common dependencies between run and build
+        - python
+        - sympy
+        - eigency =3.4.0.4
+        - eigen
+        - kokkos =4.7.01 h*
+        - arborx =2.0.1 h*
+        - mmgsuite =5.8
         - if: osx
           then: llvm-openmp >=21.1.5
         - if: linux
           then: libgomp
-        - pip
-        - setuptools
-        - kokkos =4.7.01 h*
-        - arborx =2.0.1 h*
-        - mmgsuite =5.8
         - if: win
           then: pywin32
       run:
+
+        ## Common dependencies between run and build
         - python
-        - scipy >=1.12
         - sympy
         - eigency =3.4.0.4
-        - networkx >=3
-        - dill
+        - eigen
+        - kokkos =4.7.01 h*
+        - arborx =2.0.1 h*
         - mmgsuite =5.8
         - if: osx
           then: llvm-openmp >=21.1.5
         - if: linux
           then: libgomp
-        - if: not win
-          then: libscotch
         - if: win
           then: pywin32
-        - kokkos =4.7.01 h*
-        - arborx =2.0.1 h*
+
+        ## Run dependencies only for muscat-core
+        - scipy >=1.12
+        - networkx >=3
+        - dill
         - cvxpy
         - pycgns-core
         - h5py
@@ -111,22 +118,25 @@ outputs:
     requirements:
       run:
         - ${{ pin_subpackage('muscat-core', upper_bound='x.x.x') }}
+
+        ## Extensions for muscat that are not in muscat-core
         - vtk
         - psutil
-        - h5py
         - meshio
         - pyvista
         - python-mumps
 
     tests:
+      ## Testing import for muscat and just added packages
       - python:
           imports:
             - Muscat
             - psutil
-            - h5py
             - meshio
-            - networkx
+            - pyvista
+            - mumps
 
+      ## Same tests than muscat-core but we no longer ignore Mumps
       - script:
           - if: osx
             then:
