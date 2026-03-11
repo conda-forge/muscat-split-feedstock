@@ -16,8 +16,6 @@ github_actions_labels:
 - cirun-openstack-gpu-large
 libboost_headers:
 - '1.88'
-libscotch:
-- 7.0.11
 mkl_devel:
 - '2025'
 pin_run_as_build:
@@ -31,5 +29,3 @@ python:
 - 3.13.* *_cp313
 target_platform:
 - linux-64
-zlib:
-- '1'
