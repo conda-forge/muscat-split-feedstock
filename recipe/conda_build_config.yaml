@@ -1,9 +1,4 @@
 github_actions_labels:
 - cirun-openstack-gpu-large
-python:
-  ## Pyvista does not import for win py310
-  - 3.10 # [not win]
-  - 3.11
-  - 3.12
-  - 3.13
+
 
