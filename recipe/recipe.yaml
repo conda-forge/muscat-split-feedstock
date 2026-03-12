@@ -45,7 +45,6 @@ outputs:
         - ${{ compiler('cxx') }}
         - ${{ stdlib('c') }}
         - cmake
-
       host:
         ## Build dependencies only
         - ninja
@@ -70,7 +69,6 @@ outputs:
           then: libgomp
         - if: win
           then: pywin32
-
       run:
         ## Common dependencies between run and build
         - python
