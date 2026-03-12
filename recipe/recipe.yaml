@@ -72,7 +72,6 @@ outputs:
       run:
         ## Common dependencies between run and build
         - python
-        - {{ pin_compatible('numpy') }}
         - sympy
         - eigency =3.4.0.4
         - eigen
@@ -86,6 +85,7 @@ outputs:
         - if: win
           then: pywin32
         ## Run dependencies only for muscat-core
+        - ${{ pin_compatible('numpy') }}
         - scipy >=1.12
         - networkx >=3
         - dill
