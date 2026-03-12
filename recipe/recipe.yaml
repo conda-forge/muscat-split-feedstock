@@ -12,7 +12,7 @@ recipe:
 
 source:
   - url: https://gitlab.com/drti/muscat/-/archive/${{ version }}/${{ name|lower }}-${{ version }}.tar.bz2
-    sha256: 1a97cb166959ef786469668b727c0c53ebfe115a466ca895440a1a189570187f
+    sha256: 3b33ddb7ce78551337d18935f571abe2c009641381663b69e76eb8dc0f961278
 
 build:
   number: 0
