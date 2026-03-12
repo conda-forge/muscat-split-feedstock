@@ -132,7 +132,7 @@ outputs:
           imports:
             - Muscat
             - psutil
-            - pyvista # Commenting pyvista since win py310 build is broken
+            - pyvistaa 
             - meshio
             - mumps
 
