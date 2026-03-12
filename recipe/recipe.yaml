@@ -45,17 +45,17 @@ outputs:
         - ${{ compiler('cxx') }}
         - ${{ stdlib('c') }}
         - cmake
-      host:
 
+      host:
         ## Build dependencies only
         - ninja
         - pip
         - setuptools-scm
         - setuptools
         - cython
+        - numpy >=2
         - mkl-devel
         - libboost-headers
-
         ## Common dependencies between run and build
         - python
         - sympy
@@ -70,10 +70,11 @@ outputs:
           then: libgomp
         - if: win
           then: pywin32
+
       run:
-
         ## Common dependencies between run and build
         - python
+        - {{ pin_compatible('numpy') }}
         - sympy
         - eigency =3.4.0.4
         - eigen
@@ -86,7 +87,6 @@ outputs:
           then: libgomp
         - if: win
           then: pywin32
-
         ## Run dependencies only for muscat-core
         - scipy >=1.12
         - networkx >=3
