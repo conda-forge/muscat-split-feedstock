@@ -132,7 +132,7 @@ outputs:
           imports:
             - Muscat
             - psutil
-            - pyvistaa 
+            - pyvista
             - meshio
             - mumps
 
