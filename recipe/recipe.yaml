@@ -54,6 +54,8 @@ outputs:
         - cython
         - mkl-devel
         - libboost-headers
+        - libvulkan-headers
+        - libxml2
         ## Common dependencies between run and build
         - python
         - numpy >=2
