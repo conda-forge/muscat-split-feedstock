@@ -14,10 +14,10 @@ cxx_compiler:
 - clangxx
 cxx_compiler_version:
 - '19'
-github_actions_labels:
-- cirun-openstack-gpu-large
 libboost_headers:
 - '1.88'
+libxml2:
+- '2.14'
 macos_machine:
 - x86_64-apple-darwin13.4.0
 mkl_devel:
@@ -31,6 +31,5 @@ python:
 - 3.11.* *_cpython
 - 3.12.* *_cpython
 - 3.13.* *_cp313
-- 3.14.* *_cp314
 target_platform:
 - osx-64
