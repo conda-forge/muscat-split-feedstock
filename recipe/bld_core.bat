@@ -18,7 +18,9 @@ cmake .. -G "Ninja"                            ^
 -D CMAKE_INSTALL_DATAROOTDIR="Library/share"   ^
 -D CMAKE_INSTALL_PREFIX="%PREFIX%"             ^
 -DLIBXML2_LIBRARY=%PREFIX%\Library\lib\libxml2.lib ^
--DLIBXML2_INCLUDE_DIR=%PREFIX%\Library\include\libxml2
+-DLIBXML2_INCLUDE_DIR=%PREFIX%\Library\include\libxml2 ^
+-DZLIB_LIBRARY=%PREFIX%\Library\lib\zlib.lib ^
+-DZLIB_INCLUDE_DIR=%PREFIX%\Library\include
 
 
 cmake                ^
