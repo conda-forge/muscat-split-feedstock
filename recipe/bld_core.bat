@@ -3,8 +3,7 @@ setlocal EnableDelayedExpansion
 mkdir cmakeBuild%PY_VER%
 cd cmakeBuild%PY_VER%
 
-
-cmake .. -G "Ninja"                            ^
+cmake ../superbuild -G "Ninja"                 ^
 -D CMAKE_BUILD_TYPE=Release                    ^
 -D CMAKE_EXPORT_COMPILE_COMMANDS:BOOL="TRUE"   ^
 -D Muscat_ENABLE_Mumps:BOOL=ON                 ^
@@ -24,6 +23,6 @@ cmake                ^
   --config Release   ^
   -j 1
 
-cmake                 ^
---install .           ^
+cmake                     ^
+--install ./Muscat-build  ^
 --config Release

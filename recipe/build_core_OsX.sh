@@ -19,16 +19,16 @@ cmake  ${CMAKE_ARG}                            \
 -D CMAKE_INSTALL_PREFIX=${PREFIX}              \
 -G Ninja                                       \
 -B ${PWD}/${BUILD_DIR}                         \
--S .
+-S ./superbuild
 
 cmake                          \
 --build ${BUILD_DIR}           \
 --parallel 16
 
-ctest                             \
---test-dir ${BUILD_DIR}           \
---output-on-failure               \
+ctest                                \
+--test-dir ${BUILD_DIR}/Muscat-build \
+--output-on-failure                  \
 --exclude-regex "NativeMumpsSolver|coverage" \
 --parallel 16
 
-cmake --install ${BUILD_DIR}
+cmake --install ${BUILD_DIR}/Muscat-build
