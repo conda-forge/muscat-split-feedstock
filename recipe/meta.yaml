@@ -61,7 +61,7 @@ outputs:
         - zlib
         - scipy >=1.12
         - dill
-        - pywin32
+        - pywin32  # [win]
         - networkx >=3.0
         # cvxpy not available in osx for numpy 2 (numpy 1 not available on python 3.13)
         - cvxpy  # [not osx or py!=313 ]
