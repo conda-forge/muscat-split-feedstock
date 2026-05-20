@@ -48,6 +48,8 @@ outputs:
         - setuptools-scm
         - eigen
         - libboost-headers
+        - libvulkan-headers
+        - libxml2
         - llvm-openmp  # [osx]
         - libgomp      # [linux]
         - pip
