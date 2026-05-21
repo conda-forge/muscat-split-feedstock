@@ -44,7 +44,7 @@ outputs:
         - sympy
         #first version of eigency compatible with numpy 2
         - eigency =3.4.0.4
-        - mkl-devel
+        - mkl-devel  # [not osx]
         - setuptools-scm
         - eigen =3
         - libboost-headers
@@ -159,7 +159,7 @@ outputs:
         - sympy
         - cython
         - eigency =3.4.0.4
-        - mkl-devel
+        - mkl-devel  # [not osx]
         - setuptools-scm
         - eigen =3
         - scipy >=1.9
