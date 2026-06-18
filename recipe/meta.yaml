@@ -4,14 +4,12 @@ package:
   name: muscat-split
   version: {{ version }}
 
-
 source:
   url: https://gitlab.com/drti/muscat/-/archive/{{ version }}/muscat-{{ version }}.tar.bz2
   sha256: 60ce66aeabf8c71af1f3b39bc319cc853178c825a265c66e662bba671d3b202a
 
 build:
-  number: 0
-
+  number: 1
 
 outputs:
   - name: muscat-core
