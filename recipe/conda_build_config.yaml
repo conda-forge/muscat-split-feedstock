@@ -1,2 +1,2 @@
 github_actions_labels:
-- cirun-openstack-gpu-large
+- blacksmith-8vcpu-ubuntu-2404
