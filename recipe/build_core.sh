@@ -24,3 +24,6 @@ cmake                   \
 --parallel 16
 
 cmake --install $BUILD_DIR
+
+# CMake installs modules, but does not register the Python distribution.
+"$PYTHON" "$RECIPE_DIR/install_metadata.py"

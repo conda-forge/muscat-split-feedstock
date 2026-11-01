@@ -13,7 +13,7 @@ source:
     sha256: f667b180c3c24e33219bf01b651bd145101680aac15f881c47b32b9753f0d98b
 
 build:
-  number: 2
+  number: 3
 
 outputs:
   - package:
@@ -99,6 +99,8 @@ outputs:
           imports:
             - Muscat
       - script:
+          - python -c "from importlib.metadata import version; assert version('muscat') == '${{ version }}'"
+      - script:
           - if: osx
             then:
               - export OMP_NUM_THREADS=1
@@ -135,6 +137,8 @@ outputs:
             - mumps
 
       ## Same tests than muscat-core but we no longer ignore Mumps
+      - script:
+          - python -c "from importlib.metadata import version; assert version('muscat') == '${{ version }}'"
       - script:
           - if: osx
             then:
