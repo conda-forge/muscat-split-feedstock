@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: Muscat
-  version: ParMmg
+  version: master
 
 recipe:
   name: muscat-split
@@ -10,7 +10,7 @@ recipe:
 
 source:
   - url: https://gitlab.com/drti/muscat/-/archive/${{ version }}/${{ name|lower }}-${{ version }}.tar.bz2
-    sha256: aa6bae588822c08666009f527e5454dcce9b34cb0db6fe178e26ce344090f02b
+    sha256: 0648d0282342130ad78d7e50ccaedf051278f52e16a9154a974305c023338eb7
 
 build:
   number: 0
