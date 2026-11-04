@@ -11,7 +11,7 @@ recipe:
 source:
   # - url: https://gitlab.com/drti/muscat/-/archive/${{ version }}/${{ name|lower }}-${{ version }}.tar.bz2
   - url: https://gitlab.com/drti/muscat/-/archive/conda-pip-compatibility/${{ name|lower }}-conda-pip-compatibility.tar.bz2
-    sha256: 3cbc674644847e6631f881e88575123e8b428904fede29ed6fea7695a4100be4
+    sha256: 03a564817c51c9aaab2a06194d615cbb030b9a95226fab3d4218669da21bb355
 
 build:
   number: 0
