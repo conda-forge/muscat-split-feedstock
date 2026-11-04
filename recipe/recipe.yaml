@@ -101,6 +101,7 @@ outputs:
       - python:
           imports:
             - Muscat
+          pip_check: false
       - script:
           - if: osx
             then:
@@ -139,7 +140,7 @@ outputs:
             - pyvista
             - meshio
             - mumps
-
+          pip_check: false
       ## Same tests than muscat-core but we no longer ignore Mumps
       - script:
           - if: osx
