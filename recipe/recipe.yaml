@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: Muscat
-  version: master
+  version: conda-pip-compatibility
 
 recipe:
   name: muscat-split
@@ -10,7 +10,7 @@ recipe:
 
 source:
   - url: https://gitlab.com/drti/muscat/-/archive/${{ version }}/${{ name|lower }}-${{ version }}.tar.bz2
-    sha256: 0648d0282342130ad78d7e50ccaedf051278f52e16a9154a974305c023338eb7
+    sha256: 3cbc674644847e6631f881e88575123e8b428904fede29ed6fea7695a4100be4
 
 build:
   number: 0
