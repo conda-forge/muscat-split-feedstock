@@ -2,14 +2,15 @@ schema_version: 1
 
 context:
   name: Muscat
-  version: conda-pip-compatibility
+  version: 2.6
 
 recipe:
   name: muscat-split
   version: ${{ version }}
 
 source:
-  - url: https://gitlab.com/drti/muscat/-/archive/${{ version }}/${{ name|lower }}-${{ version }}.tar.bz2
+  # - url: https://gitlab.com/drti/muscat/-/archive/${{ version }}/${{ name|lower }}-${{ version }}.tar.bz2
+  - url: https://gitlab.com/drti/muscat/-/archive/conda-pip-compatibility/${{ name|lower }}-conda-pip-compatibility.tar.bz2
     sha256: 3cbc674644847e6631f881e88575123e8b428904fede29ed6fea7695a4100be4
 
 build:
@@ -100,8 +101,6 @@ outputs:
           imports:
             - Muscat
       - script:
-          - python -c "from importlib.metadata import version; assert version('muscat') == '${{ version }}'"
-      - script:
           - if: osx
             then:
               - export OMP_NUM_THREADS=1
@@ -112,6 +111,8 @@ outputs:
               - python -u -m Muscat.Helpers.Check -k Mumps  -k PARMMGWrapper
           - if: win
             then: python -u -m Muscat.Helpers.Check -k AnisotropicMetricComputation -k Mumps  -k PARMMGWrapper
+      - script:
+          - python -c "from importlib.metadata import version; assert version('muscat') == '${{ version }}'"
 
 
   - package:
@@ -140,8 +141,6 @@ outputs:
 
       ## Same tests than muscat-core but we no longer ignore Mumps
       - script:
-          - python -c "from importlib.metadata import version; assert version('muscat') == '${{ version }}'"
-      - script:
           - if: osx
             then:
               - export OMP_NUM_THREADS=1
@@ -152,6 +151,8 @@ outputs:
               - python -u -m Muscat.Helpers.Check -k PARMMGWrapper
           - if: win
             then: python -u -m Muscat.Helpers.Check -k AnisotropicMetricComputation -k PARMMGWrapper
+      - script:
+          - python -c "from importlib.metadata import version; assert version('muscat') == '${{ version }}'"
 
 about:
   homepage: https://gitlab.com/drti/muscat
