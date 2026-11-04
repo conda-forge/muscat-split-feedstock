@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: Muscat
-  version: 2.6
+  version: 2.6.0
 
 recipe:
   name: muscat-split
@@ -59,12 +59,12 @@ outputs:
         - python
         - numpy >=2
         - sympy
-        - eigency =3.4.0.4
-        - eigen =3.4
+        - eigency >=5.0.1.0
+        - eigen >=5.0.1
         - kokkos >=5 h*
-        - arborx >=2.0.1 h*
+        - arborx >=2.1 h*
         - mmgsuite =5.8
-        - pacman
+        - pacman >=0.1.1
         - if: osx
           then: llvm-openmp >=21.1.5
         - if: linux
@@ -76,10 +76,10 @@ outputs:
         - python
         - ${{ pin_compatible('numpy') }}
         - sympy
-        - eigency =3.4.0.4
-        - eigen =3.4
+        - eigency >=5.0.1.0
+        - eigen >=5.0.1
         - kokkos >=5 h*
-        - arborx =2.0.1 h*
+        - arborx >=2.1 h*
         - mmgsuite =5.8
         - if: osx
           then: llvm-openmp >=21.1.5
@@ -104,13 +104,13 @@ outputs:
           - if: osx
             then:
               - export OMP_NUM_THREADS=1
-              - python -u -m Muscat.Helpers.Check -k Which -k Mumps -k PARMMGWrapper
+              - python -u -m Muscat.Helpers.Check -k Which -k Mumps -k PARMMGWrapper -f
           - if: linux
             then:
               - export OMP_NUM_THREADS=1
-              - python -u -m Muscat.Helpers.Check -k Mumps  -k PARMMGWrapper
+              - python -u -m Muscat.Helpers.Check -k Mumps  -k PARMMGWrapper -f
           - if: win
-            then: python -u -m Muscat.Helpers.Check -k AnisotropicMetricComputation -k Mumps  -k PARMMGWrapper
+            then: python -u -m Muscat.Helpers.Check -k AnisotropicMetricComputation -k Mumps  -k PARMMGWrapper -f
       - script:
           - python -c "from importlib.metadata import version; assert version('muscat') == '${{ version }}'"
 
@@ -144,13 +144,13 @@ outputs:
           - if: osx
             then:
               - export OMP_NUM_THREADS=1
-              - python -u -m Muscat.Helpers.Check -k Which -k PARMMGWrapper
+              - python -u -m Muscat.Helpers.Check -k Which -k PARMMGWrapper -f
           - if: linux
             then:
               - export OMP_NUM_THREADS=1
-              - python -u -m Muscat.Helpers.Check -k PARMMGWrapper
+              - python -u -m Muscat.Helpers.Check -k PARMMGWrapper -f
           - if: win
-            then: python -u -m Muscat.Helpers.Check -k AnisotropicMetricComputation -k PARMMGWrapper
+            then: python -u -m Muscat.Helpers.Check -k AnisotropicMetricComputation -k PARMMGWrapper -f
       - script:
           - python -c "from importlib.metadata import version; assert version('muscat') == '${{ version }}'"
 
