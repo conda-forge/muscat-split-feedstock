@@ -51,7 +51,6 @@ outputs:
         - setuptools-scm
         - setuptools
         - cython
-        - mkl-devel
         - libboost-headers
         - libvulkan-headers
         - libxml2
