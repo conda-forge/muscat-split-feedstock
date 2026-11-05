@@ -10,8 +10,8 @@ recipe:
 
 source:
   # - url: https://gitlab.com/drti/muscat/-/archive/${{ version }}/${{ name|lower }}-${{ version }}.tar.bz2
-  - url: https://gitlab.com/drti/muscat/-/archive/conda-pip-compatibility/${{ name|lower }}-conda-pip-compatibility.tar.bz2
-    sha256: 74434cf3d8c2b37c633c5d87271d67bd3089b513143bfe1ad5f344fd989831f4
+  - url: https://gitlab.com/drti/muscat/-/archive/master/${{ name|lower }}-master.tar.bz2
+    sha256: cf2ee4eeac8570030d5f9590752cc6d35db813f8cdb6827f0acaffc31d900053
 
 build:
   number: 0
