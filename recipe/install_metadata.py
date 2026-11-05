@@ -25,10 +25,7 @@ def install_metadata():
             "eigency>=5.0.1.0",
             "networkx>=3",
             "dill",
-            "cvxpy",
             "h5py",
-            "matplotlib",
-            "pywin32; sys_platform == 'win32'",
         ],
         script_args=["egg_info", "--egg-base", os.environ["SP_DIR"]],
     )
