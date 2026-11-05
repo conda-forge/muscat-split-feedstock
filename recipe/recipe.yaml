@@ -9,9 +9,8 @@ recipe:
   version: ${{ version }}
 
 source:
-  # - url: https://gitlab.com/drti/muscat/-/archive/${{ version }}/${{ name|lower }}-${{ version }}.tar.bz2
-  - url: https://gitlab.com/drti/muscat/-/archive/conda-pip-compatibility/${{ name|lower }}-conda-pip-compatibility.tar.bz2
-    sha256: 74434cf3d8c2b37c633c5d87271d67bd3089b513143bfe1ad5f344fd989831f4
+  - url: https://gitlab.com/drti/muscat/-/archive/${{ version }}/${{ name|lower }}-${{ version }}.tar.bz2
+    sha256: 291d2dc8026b0377a42e0cefb711b34a0d2f12158a9f7801a077a420c775f3c9
 
 build:
   number: 0
