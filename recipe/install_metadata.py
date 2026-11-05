@@ -22,7 +22,7 @@ def install_metadata():
             "numpy>=2",
             "scipy>=1.12",
             "sympy",
-            "eigency==3.4.0.4",
+            "eigency>=5.0.1.0",
             "networkx>=3",
             "dill",
             "cvxpy",
