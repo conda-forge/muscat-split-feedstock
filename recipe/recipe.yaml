@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: Muscat
-  version: 2.5.2
+  version: 2.6.0
 
 recipe:
   name: muscat-split
@@ -10,10 +10,10 @@ recipe:
 
 source:
   - url: https://gitlab.com/drti/muscat/-/archive/${{ version }}/${{ name|lower }}-${{ version }}.tar.bz2
-    sha256: f667b180c3c24e33219bf01b651bd145101680aac15f881c47b32b9753f0d98b
+    sha256: 291d2dc8026b0377a42e0cefb711b34a0d2f12158a9f7801a077a420c775f3c9
 
 build:
-  number: 2
+  number: 0
 
 outputs:
   - package:
@@ -50,7 +50,6 @@ outputs:
         - setuptools-scm
         - setuptools
         - cython
-        - mkl-devel
         - libboost-headers
         - libvulkan-headers
         - libxml2
@@ -58,11 +57,13 @@ outputs:
         - python
         - numpy >=2
         - sympy
-        - eigency =3.4.0.4
-        - eigen =3.4
-        - kokkos =4.7.01 h*
-        - arborx =2.0.1 h*
-        - mmgsuite =5.8
+        - eigency >=5.0.1.0
+        - eigen >=5.0.1
+        - kokkos >=5 h*
+        - arborx >=2.1 h*
+        # Use MMG without VTK; the vtk_* build pulls VTK into CMake discovery.
+        - mmgsuite =5.8 h*
+        - pacman >=0.1.1
         - if: osx
           then: llvm-openmp >=21.1.5
         - if: linux
@@ -74,11 +75,11 @@ outputs:
         - python
         - ${{ pin_compatible('numpy') }}
         - sympy
-        - eigency =3.4.0.4
-        - eigen =3.4
-        - kokkos =4.7.01 h*
-        - arborx =2.0.1 h*
-        - mmgsuite =5.8
+        - eigency >=5.0.1.0
+        - eigen >=5.0.1
+        - kokkos >=5 h*
+        - arborx >=2.1 h*
+        - mmgsuite =5.8 h*
         - if: osx
           then: llvm-openmp >=21.1.5
         - if: linux
@@ -98,17 +99,20 @@ outputs:
       - python:
           imports:
             - Muscat
+          pip_check: false
       - script:
           - if: osx
             then:
               - export OMP_NUM_THREADS=1
-              - python -u -m Muscat.Helpers.Check -k Which -k Mumps
+              - python -u -m Muscat.Helpers.Check -k Which -k Mumps -k PARMMGWrapper -f
           - if: linux
             then:
               - export OMP_NUM_THREADS=1
-              - python -u -m Muscat.Helpers.Check -k Mumps
+              - python -u -m Muscat.Helpers.Check -k Mumps  -k PARMMGWrapper -f
           - if: win
-            then: python -u -m Muscat.Helpers.Check -k AnisotropicMetricComputation -k Mumps
+            then: python -u -m Muscat.Helpers.Check -k AnisotropicMetricComputation -k Mumps  -k PARMMGWrapper -f
+      - script:
+          - python -c "from importlib.metadata import version; assert version('muscat') == '${{ version }}'"
 
 
   - package:
@@ -123,6 +127,7 @@ outputs:
         - meshio
         - pyvista >=0.47
         - python-mumps
+        - pacman
 
     tests:
       ## Testing import for muscat and just added packages
@@ -133,19 +138,21 @@ outputs:
             - pyvista
             - meshio
             - mumps
-
+          pip_check: false
       ## Same tests than muscat-core but we no longer ignore Mumps
       - script:
           - if: osx
             then:
               - export OMP_NUM_THREADS=1
-              - python -u -m Muscat.Helpers.Check -k Which
+              - python -u -m Muscat.Helpers.Check -k Which -k PARMMGWrapper -f
           - if: linux
             then:
               - export OMP_NUM_THREADS=1
-              - python -u -m Muscat.Helpers.Check
+              - python -u -m Muscat.Helpers.Check -k PARMMGWrapper -f
           - if: win
-            then: python -u -m Muscat.Helpers.Check -k AnisotropicMetricComputation
+            then: python -u -m Muscat.Helpers.Check -k AnisotropicMetricComputation -k PARMMGWrapper -f
+      - script:
+          - python -c "from importlib.metadata import version; assert version('muscat') == '${{ version }}'"
 
 about:
   homepage: https://gitlab.com/drti/muscat

@@ -31,3 +31,8 @@ cmake                ^
 cmake                 ^
 --install .           ^
 --config Release
+if errorlevel 1 exit /b 1
+
+rem Register the CMake-installed modules with Python packaging tools.
+"%PYTHON%" "%RECIPE_DIR%\install_metadata.py"
+if errorlevel 1 exit /b 1
