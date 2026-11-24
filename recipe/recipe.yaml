@@ -13,7 +13,7 @@ source:
     sha256: 291d2dc8026b0377a42e0cefb711b34a0d2f12158a9f7801a077a420c775f3c9
 
 build:
-  number: 1
+  number: 2
 
 outputs:
   - package:
@@ -59,7 +59,7 @@ outputs:
         - sympy
         - eigency >=5.0.1.0
         - eigen >=5.0.1
-        - kokkos >=5 h*
+        - kokkos =5.2.2 h*
         - arborx >=2.1 h*
         # Use MMG without VTK; the vtk_* build pulls VTK into CMake discovery.
         - mmgsuite =5.8 h*
@@ -77,7 +77,7 @@ outputs:
         - sympy
         - eigency >=5.0.1.0
         - eigen >=5.0.1
-        - kokkos >=5 h*
+        - kokkos =5.2.2 h*
         - arborx >=2.1 h*
         - mmgsuite =5.8 h*
         - if: osx
