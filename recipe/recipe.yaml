@@ -77,7 +77,7 @@ outputs:
         - sympy
         - eigency >=5.0.1.0
         - eigen >=5.0.1
-        - kokkos >=5 h*
+        - ${{ pin_compatible('kokkos') }}
         - arborx >=2.1 h*
         - mmgsuite =5.8 h*
         - if: osx
